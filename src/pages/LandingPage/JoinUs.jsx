@@ -25,7 +25,7 @@ const JoinUs = () => {
             <div className="flex justify-between items-center h-[100%]">
 
                 <div
-                  className={`flex h-[100%] w-[35%] flex-col items-center justify-center `}            
+                  className={`flex h-[100%] w-[30%] flex-col items-center justify-center `}            
                 >
       
                   <Img

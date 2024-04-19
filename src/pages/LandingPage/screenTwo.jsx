@@ -41,6 +41,8 @@ const ScreenTwo = () => {
                     depth: 100,
                     modifier: 1,
                   }}
+                  modules={[Autoplay]}
+
                   className="swiper-container w-[100%] h-[100%] "
                 >
                   {" "}

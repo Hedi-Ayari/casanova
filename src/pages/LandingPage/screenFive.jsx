@@ -59,6 +59,8 @@ const ScreenFive = () => {
                         modifier: 1,
                         slideShadows: false,
                       }}
+                      modules={[Autoplay]}
+
                       className="swiper-container w-[100%] flex-grow"
                     >
                       {[
