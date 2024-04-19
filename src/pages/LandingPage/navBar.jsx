@@ -1,4 +1,4 @@
-import React, { useEffect, useRef,useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Img, Line, Text } from "components";
 import "./style.css";
@@ -7,24 +7,27 @@ const NavBar = () => {
   const navBar = useRef([]);
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
+  const path = window.location.pathname
+
+
   useEffect(() => {
     const navbar = navBar.current;
 
-    
+
     if (navbar) {
       gsap.fromTo(
         navbar,
         { y: "-200%" },
-        { duration: 10, y: "8%", ease: "power3.out" }
+        { duration: path == "/contact" ? 3 : 10, y: "20%", ease: "power3.out" }
       );
-     
-    
-    
+
+
+
     }
-  }, []);
+  }, [path]);
   const handleContactClick = () => {
     const windowHeight = window.innerHeight;
-    const targetScroll = windowHeight * 2; 
+    const targetScroll = windowHeight * 2;
     window.scrollTo({
       top: targetScroll,
       behavior: "smooth"
@@ -33,7 +36,7 @@ const NavBar = () => {
   };
   const handleHomeClick = () => {
     const windowHeight = window.innerHeight;
-    const targetScroll = windowHeight * 0; 
+    const targetScroll = windowHeight * 0;
     window.scrollTo({
       top: targetScroll,
       behavior: "smooth"
@@ -43,7 +46,7 @@ const NavBar = () => {
 
   const handlePlanClick = () => {
     const windowHeight = window.innerHeight;
-    const targetScroll = windowHeight * 1.5; 
+    const targetScroll = windowHeight * 1.5;
     window.scrollTo({
       top: targetScroll,
       behavior: "smooth"
@@ -51,48 +54,59 @@ const NavBar = () => {
     setScrollPercentage(targetScroll / document.body.scrollHeight * 100);
   };
   return (
-      <div className="navbar-position-top transformToY" ref={navBar}>
-        <div className="flex flex-col items-start justify-start w-full">
-          <Text
-            onClick={handleHomeClick}
-            className="ml-[2%] text-base text-black-900"
-            size="txtMontserratRegular16"
-          >
-            HOME
-          </Text>
-          <div className=" ml-[2%] flex flex-row md:gap-10 items-center justify-between md:ml-[0] ml-[23px] mt-[13px] w-[99%] md:w-full">
-            <Text
-              className="text-base text-black-900"
-              size="txtMontserratRegular16"
-            >
-              ABOUT
-            </Text>
-            <Img
-              className=" ml-[2%] h-7 mr-[2%] md:h-auto object-cover"
-              src="images/img_logo22.png"
-              alt="logoTwentyTwo"
-            />
+    <div className="navbar-position-top transformToY" ref={navBar}>
+      <div className="flex justify-center">
+        <div className="w-[90%]">
+          <div className="flex  items-center justify-between w-full">
+            <div className="flex flex-col ">
+
+              <Text
+                onClick={handleHomeClick}
+                className="text-base text-black-900"
+                size="txtMontserratRegular16"
+              >
+                ACCUEIL
+              </Text>
+              <Text
+                onClick={handlePlanClick}
+
+                className="mt-[11px] text-base text-black-900"
+                size="txtMontserratRegular16"
+              >
+                A PROPOS
+              </Text>
+              <Text
+                className="mt-[11px] text-base text-black-900"
+                size="txtMontserratRegular16"
+                onClick={handleContactClick}
+
+
+              >
+                CONTACT
+              </Text>
+              <Text
+                onClick={handlePlanClick}
+
+                className="mt-[11px] text-base text-black-900"
+                size="txtMontserratRegular16"
+              >
+                WEDDING PLANNER
+              </Text>
+            </div>
+            <>
+
+              <Img
+                className="  h-7  md:h-auto object-cover"
+                src="images/img_logo22.png"
+                alt="logoTwentyTwo"
+              />
+            </>
           </div>
-          <Text
-            className=" ml-[2%] md:ml-[0] ml-[3px] mt-[11px] text-base text-black-900"
-            size="txtMontserratRegular16"
-            onClick={handleContactClick}
-            
-
-          >
-            CONTACT
-          </Text>
-          <Text
-                      onClick={handlePlanClick}
-
-            className=" ml-[2%] md:ml-[0] ml-[3px] mt-[15px] text-base text-black-900"
-            size="txtMontserratRegular16"
-          >
-            WEDDING PLANNER
-          </Text>
         </div>
-        
       </div>
+
+
+    </div>
 
   );
 };

@@ -15,7 +15,7 @@
   }
   
   .SelectSettingsProfile {
-    position: absolute;
+    position: fixed;
     right: 4%;
     width: 10%;
     top: 7%;

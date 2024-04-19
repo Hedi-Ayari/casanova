@@ -40,12 +40,11 @@ const ScreenZero = () => {
 
   return (
     <>
-      <div  >
       <NavBar  />
 
-      </div>
-      <div className="flex panel flex-col items-start justify-start relative fullScreen" style={{backgroundImage: 'url("images/aaaaaaaaaaaaaaaa.png")',backgroundRepeat: 'no-repeat',backgroundSize: 'cover'}}>
-        <div className="flex items-center justify-center fullScreen" >
+      
+      <div className="flex panel flex-col items-start justify-start relative fullSize" style={{backgroundImage: 'url("images/aaaaaaaaaaaaaaaa.png")',backgroundRepeat: 'no-repeat',backgroundSize: 'cover'}}>
+        <div className="flex items-center justify-center fullSize" >
           <div style={{height:"80%",display:"flex",flexDirection:"column"}}>
           <div  ref={(el) => elementsRef.current.push(el)} className="flex-col h-[40%] item-center z-[999]  justify-center pt-[14%] ">
           <Text

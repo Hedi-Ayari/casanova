@@ -1,69 +1,93 @@
 .rotate {
-    transform: rotate(45deg);
-  }
-  .textCercle{
-    left: 35.5%;
-    position: absolute;
-    height: 48%;
-    bottom: 57%;
-  }
-
-.colorOfthiPage{
-  background-color:  #EAD9C9;
-  
+  transform: rotate(45deg);
 }
+
+.textCercle {
+  position: absolute;
+  height: 510px;
+  z-index: 99999;
+  margin: auto auto;
+  top: -20%;
+  transform: translate(10px);
+}
+
+
+.textCercle-2 {
+  width: 320px;
+  height: 350px;
+
+}
+
+.colorOfthiPage {
+  background-color: #EAD9C9;
+
+}
+
 .texto {
   writing-mode: vertical-rl;
   text-orientation: mixed;
 }
 
 .custom-swiper-container {
-  height: 25%; /* Set the height to 25% of the parent's height */
-  right: 28%; /* Adjust the right position */
+  height: 25%;
+  /* Set the height to 25% of the parent's height */
+  right: 28%;
+  /* Adjust the right position */
 }
-.absolute{
+
+.absolute {
   position: absolute !important;
 }
-.overrideHeight{
+
+.overrideHeight {
   height: 100% !important;
 }
-.navbar-position-top{
-    position: absolute;
-    top: 1% !important;
-    width: 100%;
-    z-index: 999;
+
+.navbar-position-top {
+  position: absolute;
+  top: 1% !important;
+  width: 100%;
+  z-index: 999;
 }
-  .fullScreen{
-    width:100vw;
-  }
-  .fullWidth{
-    width:100%;
-    height: 100%;
-  }
-  .position2 {
-    transform: translateX(100%);
+
+.fullSize {
+  width: 100vw;
+  height: 100vh;
 }
-.noScroll{
-    overflow: hidden;
+
+.fullScreen {
+  width: 100vw;
+  height: 480px;
+}
+
+.fullWidth {
+  width: 100%;
+  height: 100%;
+}
+
+.position2 {
+  transform: translateX(100%);
+}
+
+.noScroll {
+  overflow: hidden;
 
 }
-.rotation-position{
-    transform: rotate(190);
+
+.rotation-position {
+  transform: rotate(190);
 
 }
-.fixedd {
-  overflow: fixed;
-  top: 0;
-  
-  
-}
+
 .transitioned {
   transform: translateY(-85%);
   transition: transform 5s ease;
 }
-.transformToY{
+
+.transformToY {
   transform: translateY(-200%);
 }
+
 .swiper-container-vertical {
   transform: rotate(-90deg);
   transform-origin: right top;

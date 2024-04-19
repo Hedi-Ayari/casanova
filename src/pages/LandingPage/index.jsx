@@ -73,12 +73,8 @@ const LandingPage = () => {
           <ScreenFour />
           <ScreenTwo />
           <ScreenSix/>
-
           <ScreenFive/>
           <JoinUs/>
-          <ContactMain/>
-         
-
         </div>
       </div>
     </>
