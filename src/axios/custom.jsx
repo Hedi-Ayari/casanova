@@ -3,7 +3,7 @@ import axios from "axios";
 const { REACT_APP_API_BACK } = process.env.REACT_APP_API_BACK
 
 const customAxios = axios.create({
-  baseURL: "https://www.casanova-event.com",
+  baseURL: "https://www.casanova-event.com/api/v1",
 });
 
 
