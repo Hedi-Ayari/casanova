@@ -100,8 +100,11 @@ const CategoryPagePage = () => {
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   };
+
+  const [value,setValue] = useState(9999)
   const handlePriceChange = (newValue) => {
     console.log(newValue);
+    setValue(newValue)
     setPriceRange(newValue);
   };
   if (priceRange) {
@@ -275,7 +278,7 @@ const CategoryPagePage = () => {
                                 className="text-center text-red-300 text-sm"
                                 size="txtCalistogaRegular14Red300"
                               >
-                                {priceRange}TND
+                                {value}TND
                               </Text>
                             </div>
                           </div>
@@ -445,7 +448,7 @@ const CategoryPagePage = () => {
                               className="text-center text-red-300 text-sm"
                               size="txtCalistogaRegular14Red300"
                             >
-                              {priceRange}TND
+                              {value}TND
                             </Text>
                           </div>
                         </div>
