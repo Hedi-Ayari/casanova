@@ -29,7 +29,7 @@ const CategoryPagePage = () => {
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
 
-  const [priceRange, setPriceRange] = useState([50, 200]);
+  const [priceRange, setPriceRange] = useState([50, 9999]);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categories, setCategories] = useState([]);
@@ -256,7 +256,7 @@ const CategoryPagePage = () => {
                           <div className="flex flex-col items-start justify-start w-full">
                             <SeekBar
                               min={50}
-                              max={200}
+                              max={9999}
                               inputValue={priceRange}
                               onChange={handlePriceChange}
                               trackColors={["#f0f0f0", "#c3937c", "#f0f0f0"]}
@@ -269,13 +269,13 @@ const CategoryPagePage = () => {
                                 className="text-red-300 text-sm"
                                 size="txtCalistogaRegular14Red300"
                               >
-                                $50
+                                50 TND 
                               </Text>
                               <Text
                                 className="text-center text-red-300 text-sm"
                                 size="txtCalistogaRegular14Red300"
                               >
-                                $200
+                                {priceRange}TND
                               </Text>
                             </div>
                           </div>
@@ -445,7 +445,7 @@ const CategoryPagePage = () => {
                               className="text-center text-red-300 text-sm"
                               size="txtCalistogaRegular14Red300"
                             >
-                              9999TND
+                              {priceRange}TND
                             </Text>
                           </div>
                         </div>
