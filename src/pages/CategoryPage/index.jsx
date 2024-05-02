@@ -103,8 +103,7 @@ const CategoryPagePage = () => {
 
   const [value,setValue] = useState(9999)
   const handlePriceChange = (newValue) => {
-    console.log(newValue);
-    setValue(newValue)
+    setValue(parseInt(newValue.substring(2)))
     setPriceRange(newValue);
   };
   if (priceRange) {
