@@ -104,7 +104,8 @@ const CategoryPagePage = () => {
   const [value,setValue] = useState(9999)
   
   const handlePriceChange = (newValue) => {
-    setValue(parseInt(newValue.substring(2)))
+    console.log(newValue);
+    setValue(parseInt(newValue[1]))
     setPriceRange(newValue);
   };
 
@@ -268,7 +269,7 @@ const CategoryPagePage = () => {
                               className="flex h-5 rounded-[3px] w-full"
                               trackClassName="h-[5px] flex rounded-[3px] w-full"
                             />{" "}
-                            <div className="flex flex-row items-center justify-between mt-[3px] w-[87%] md:w-full">
+                            <div className="flex flex-row items-center justify-between mt-[3px] w-[100%] md:w-full">
                               <Text
                                 className="text-red-300 text-sm"
                                 size="txtCalistogaRegular14Red300"
@@ -438,7 +439,7 @@ const CategoryPagePage = () => {
                             className="flex h-5 rounded-[3px] w-full"
                             trackClassName="h-[5px] flex rounded-[3px] w-full"
                           />{" "}
-                          <div className="flex flex-row items-center justify-between mt-[3px] w-[87%] md:w-full">
+                          <div className="flex flex-row items-center justify-between mt-[3px] w-[100%] md:w-full">
                             <Text
                               className="text-red-300 text-sm"
                               size="txtCalistogaRegular14Red300"
