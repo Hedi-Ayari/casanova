@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Cart } from "../../utils/recoil/atoms";
 import { useRecoilState } from "recoil";
 import { useMediaQuery } from "react-responsive";
+import { Rating } from "components/rating";
 
 const CartItem = ({ item, onRemove, index }) => {
   const [cart, setCart] = useRecoilState(Cart);
@@ -42,17 +43,25 @@ const CartItem = ({ item, onRemove, index }) => {
     <>
       {isMobile ? 
      <>
-     <div className="flex flex-1  flex-row md:gap-5 items-start justify-start my-0 w-full marginTop">
+     <div className="flex flex-1  flex-col md:gap-5 items-start justify-start my-0 w-full marginTop">
        <Img
-         className="h-[135px] object-fill rounded-[14px] w-[33.5%]"
+         className="h-[135px] object-fill rounded-[14px] w-[100%]"
          src={process.env.REACT_APP_API_BACK + "/uploads/" + item.image[0]}
          alt="imageSeven"
        />
 
-       <div className="flex md:flex-1 flex-col md:gap-[12px] gap-[21px] w-[65%] items-start justify-start ml-7 md:ml-[0] md:mt-0 mt-[5px] w-[30%] md:w-full">
+       <div className="flex md:flex-1 flex-col md:gap-[12px] gap-[21px] w-[100%] items-start justify-start ml-7 md:ml-[0] md:mt-0 mt-[5px] w-[30%] md:w-full">
+         <div className="flex justify-between w-[100%]">
          <Text className="text-black-900 text-lg md:text-[20px]"  size="txtCormorantBold18">
            {item.title}
          </Text>
+         <Img
+           className="h-6 w-6 cursor-pointer"
+           src="../images/img_frame.svg"
+           alt="frame"
+           onClick={handleRemoveClick}
+         />
+         </div>
          <div className="flex flex-col  md:gap-[10px] font-montserrat items-start justify-between w-full">
            <Text
              className="text-black-900 text-sm  md:text-[14px] tracking-[0.60px]"
@@ -60,41 +69,15 @@ const CartItem = ({ item, onRemove, index }) => {
            >
              {item?.owner?.businessName}
            </Text>
-           <div className="flex gap-[8px] w-[100%]">
+           <div className="flex gap-[8px] w-[100%] items-center">
 
-            <div className="flex mt-0.5 relative align-center">
-              <div className="flex my-auto">
-              <Img
-                      className="h-3 my-auto rounded-[1px] w-3"
-                      src="../images/img_star1.svg"
-                      alt="starOne"
-                    />
-                    <Img
-                      className="h-3 m my-auto rounded-[1px] z-[1]"
-                      src="../images/img_star2.svg"
-                      alt="starTwo"
-                    />
-                  <Img
-                    className="h-3  my-auto rounded-[1px] z-[1]"
-                    src="../images/img_star3.svg"
-                    alt="starThree"
-                  />
-                    <Img
-                className="h-3  my-auto rounded-[1px]  z-[1]"
-                src="../images/img_star4.svg"
-                alt="starFour"
-              />
-                <Img
-                  className="h-3  my-auto rounded-[1px]  z-[1]"
-                  src="../images/img_star10.svg"
-                  alt="starTen"
-                />
-              
-              </div>
+            <div className="flex mt-0.5 relative items-center">
+              <Rating val={5} />
+ 
             
             </div>
             <Text
-              className="text-black-900 text-xs"
+              className="text-black-900 text-sm"
               size="txtMontserratRegular12"
             >
               <span className="text-black-900 font-calistoga text-left font-normal">
@@ -106,18 +89,11 @@ const CartItem = ({ item, onRemove, index }) => {
             </Text>
            </div>
          </div>
-         <div className="flex  gap-[58px] items-end justify-between md:ml-[0] w-full">
-         <Text className="text-black-900 text-lg" size="txtCalistogaRegular18">
+         <div className="flex  gap-[58px] items-center justify-between md:ml-[0] w-full">
+         <Text className="text-black-900 text-lg w-[50%]" size="txtCalistogaRegular18">
            {item.price} TND
          </Text>
-         <Img
-           className="h-6 w-6 cursor-pointer"
-           src="../images/img_frame.svg"
-           alt="frame"
-           onClick={handleRemoveClick}
-         />
-       </div>
-         <div className="bg-gray-100 flex flex-row items-center justify-between mr-[3px] p-2 rounded-[5px] w-[98%] md:w-full">
+         <div className="bg-gray-100 flex flex-row items-center justify-between mr-[3px] p-2 rounded-[5px] w-[35%] ">
            <Img
              className="h-3.5 ml-2 w-[13px]"
              src="../images/img_frame_black_900.svg"
@@ -137,6 +113,8 @@ const CartItem = ({ item, onRemove, index }) => {
              onClick={increaseCount}
            />
          </div>
+       </div>
+        
      
         
        </div>
@@ -157,48 +135,17 @@ const CartItem = ({ item, onRemove, index }) => {
           <Text className="text-black-900 text-lg md:text-[16px]"  size="txtCormorantBold18">
             {item.title}
           </Text>
-          <div className="flex flex-row md:flex-col md:gap-[5px] font-montserrat items-start justify-between w-full">
+          <div className="flex flex-col md:flex-col md:gap-[5px] font-montserrat items-start justify-between w-full">
             <Text
               className="text-black-900 text-sm  md:text-[14px] tracking-[0.60px]"
               size="txtMontserratRegular12"
             >
               {item?.owner?.businessName}
             </Text>
-            <div className="flex mt-0.5 relative w-[29%]">
-              <div className="flex my-auto w-[81%]">
-                <div className="flex my-auto w-[76%]">
-                  <div className="flex my-auto w-[68%]">
-                    <Img
-                      className="h-3 my-auto rounded-[1px] w-3"
-                      src="../images/img_star1.svg"
-                      alt="starOne"
-                    />
-                    <Img
-                      className="h-3 ml-[-1px] my-auto rounded-[1px] w-3 z-[1]"
-                      src="../images/img_star2.svg"
-                      alt="starTwo"
-                    />
-                  </div>
-                  <Img
-                    className="h-3 ml-[-1px] my-auto rounded-[1px] w-3 z-[1]"
-                    src="../images/img_star3.svg"
-                    alt="starThree"
-                  />
-                </div>
-                <Img
-                  className="h-3 ml-[-1px] my-auto rounded-[1px] w-3 z-[1]"
-                  src="../images/img_star10.svg"
-                  alt="starTen"
-                />
-              </div>
-              <Img
-                className="h-3 ml-[-1px] my-auto rounded-[1px] w-3 z-[1]"
-                src="../images/img_star4.svg"
-                alt="starFour"
-              />
-            </div>
+            <div className="flex mt-0.5 items-center gap-4 relative w-[100%]">
+              <Rating val={5} />
             <Text
-              className="text-black-900 text-xs"
+              className="text-black-900 text-sm"
               size="txtMontserratRegular12"
             >
               <span className="text-black-900 font-calistoga text-left font-normal">
@@ -208,6 +155,7 @@ const CartItem = ({ item, onRemove, index }) => {
                 5
               </span>
             </Text>
+            </div>
           </div>
           <Text className="text-black-900 text-lg" size="txtCalistogaRegular18">
             ${item.price}

@@ -13,6 +13,7 @@ import { useMediaQuery } from 'react-responsive'
 
 import { useRecoilState } from "recoil";
 import { useGetUser } from "utils/functions";
+import { Link } from "react-router-dom";
 const NavBar = () => {
   const getUser = useGetUser();
   const [user, setUser] = useRecoilState(User);
@@ -67,6 +68,28 @@ const NavBar = () => {
 
 
   }, []);
+
+    const [loggedIn,setLoggedIn] = useState(null)
+  const checkvalidUser= useGetUser()
+  const [token,setToken] = useRecoilState(User);
+  React.useEffect(() => {
+    const fetchUserFromToken = async () => {
+     if(!token){
+      setLoggedIn(false)
+      return
+     }
+     const user =  await checkvalidUser(token)
+     if(user.status!=401){
+     await setLoggedIn(true)
+     }else{
+      setLoggedIn(false)
+      return
+     }
+    };
+
+    fetchUserFromToken();
+  }, [token]);
+
   const handlePlayAudio = () => {
     if (backgroundAudio) {
       if(playing){
@@ -93,32 +116,37 @@ const NavBar = () => {
                 onClick={() => navigate(`/homepage`)}
               />
           </div>
+          {userData?.user ?
           <div className="flex gap-[11%]  ">
             
-                <Img
-                className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
-                src="../images/box.svg"
-                alt="bag"
-                onClick={() => navigate(`/category`)}
-              />
-                <Img
-                className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
-                src="../images/cart.svg"
-                alt="bag"
-                onClick={() => navigate(`/cart`)}
-              />
-                <Img
-                className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
-                onClick={handleImageClick}
-                src={
-                  userData?.user?.picture
-                    ? process.env.REACT_APP_API_BACK +
-                      "/uploads/" +
-                      userData?.user?.picture
-                    : "../images/defaultProfilePicCopy.jpg"
-                }            alt="bag"
-              />
-          </div>
+          <Img
+          className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
+          src="../images/box.svg"
+          alt="bag"
+          onClick={() => navigate(`/category`)}
+        />
+          <Img
+          className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
+          src="../images/cart.svg"
+          alt="bag"
+          onClick={() => navigate(`/cart`)}
+        />
+          <Img
+          className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
+          onClick={handleImageClick}
+          src={
+            userData?.user?.picture
+              ? process.env.REACT_APP_API_BACK +
+                "/uploads/" +
+                userData?.user?.picture
+              : "../images/defaultProfilePicCopy.jpg"
+          }            alt="bag"
+        />
+    </div>
+          : 
+          <Link to='/signIn' style={{width:'35%',height:'38px',fontSize:"14px",color:'white',borderRadius:"8px",background:"rgb(195 147 124)",border:"1px solid rgb(195 147 124)"}} className="flex items-center justify-center" >Login</Link>
+          }
+          
         
         
         </div> 

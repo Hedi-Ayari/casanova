@@ -64,8 +64,8 @@ const CartPage = () => {
       <div className="bg-white-A700 flex flex-col font-cormorant items-center justify-end mx-auto pt-[37px] w-full">
         
         <div className="flex flex-col md:gap-10 items-center justify-start w-full">
-          <div className="flex flex-col items-start justify-start max-w-[1241px] mx-auto md:px-2 w-full">
-            <Line className="bg-black-900_19 h-px mt-16 w-full" />
+          <div className="flex flex-col items-start justify-start max-w-[1241px] md:max-w-[95%] md:w-[95%] mx-auto  w-full">
+            <Line className="bg-black-900_19 h-px mt-16 w-full md:hidden" />
             <Text
               className="mt-10 sm:text-4xl md:text-[38px] text-[40px] text-red-300"
               size="txtCormorantBold40"
@@ -139,43 +139,49 @@ const CartPage = () => {
                     </Text>
                   </div>
                   <Line className="bg-black-900_19 h-px ml-1 md:ml-[0] mt-[17px] w-[99%]" />
-                  <div className="flex flex-row sm:gap-5 items-center justify-start ml-2 md:ml-[0] mt-3.5 w-[99%] md:w-full">
+                  <div className="flex flex-row sm:gap-5 items-center justify-between ml-2 md:ml-[0] mt-3.5 w-[99%] md:w-full">
                   <input checked  type="radio" id="prestatire" name="deliveryOption"  value="Prestatire" onChange={handleDeliveryOptionChange} />
 
                     <label htmlFor="customRadio" className="radioButton">
                      
                     </label>
-                    <Text
-                      className="sm:ml-[0] ml-[13px] text-black-900_99 text-sm"
-                      size="txtMontserratRegular14Black90099"
-                    >
-                      Livraison Prestatire
-                    </Text>
-                    <Text
-                      className="sm:ml-[0] ml-[266px] text-black-900 text-right text-sm"
-                      size="txtCalistogaRegular14"
-                    >
-                      0 TND
-                    </Text>
+                    <div className="flex gap-3">
+
+                      <Text
+                        className="sm:ml-[0] ml-[13px] text-black-900_99 text-sm"
+                        size="txtMontserratRegular14Black90099"
+                      >
+                        Livraison Prestatire
+                      </Text>
+                      <Text
+                        className="sm:ml-[0] ml-[266px] text-black-900 text-right text-sm"
+                        size="txtCalistogaRegular14"
+                      >
+                        0 TND
+                      </Text>
+                    </div>
                   </div>
-                  <div className="flex  flex-row sm:gap-5 items-center justify-start ml-2 md:ml-[0] mt-3.5 w-[99%] md:w-full">
+                  <div className="flex  flex-row sm:gap-5 items-center justify-between ml-2 md:ml-[0] mt-3.5 w-[99%] md:w-full">
                   <input type="radio" id="cazanova" name="deliveryOption" value="Cazanova" onChange={handleDeliveryOptionChange} />
 
                     <label htmlFor="customRadio" className="radioButton">
                      
                     </label>
-                    <Text
-                      className="sm:ml-[0] ml-[13px] text-black-900_99 text-sm"
-                      size="txtMontserratRegular14Black90099"
-                    >
-                      Livraison Cazanova
-                    </Text>
-                    <Text
-                      className="sm:ml-[0] ml-[260px] text-black-900 text-right text-sm"
-                      size="txtCalistogaRegular14"
-                    >
-                      15 TND
-                    </Text>
+                    <div className="flex gap-3">
+
+                      <Text
+                        className="sm:ml-[0] ml-[13px] text-black-900_99 text-sm"
+                        size="txtMontserratRegular14Black90099"
+                      >
+                        Livraison Cazanova
+                      </Text>
+                      <Text
+                        className="sm:ml-[0] ml-[260px] text-black-900 text-right text-sm"
+                        size="txtCalistogaRegular14"
+                      >
+                        15 TND
+                      </Text>
+                    </div>
                   </div>
                   <Line className="bg-black-900_19 h-px ml-1 md:ml-[0] mt-[13px] w-[99%]" />
                   <div className="flex flex-row items-center justify-between ml-1 md:ml-[0] mt-[21px] w-full">

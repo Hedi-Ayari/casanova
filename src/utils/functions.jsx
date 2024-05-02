@@ -110,10 +110,12 @@ export function useDeleteFile() {
 
 export function useCreate() {
   async function useCreate(data) {
+    console.log(data);
     try {
       const response = await Create(data);
       return response; 
     } catch (error) {
+      console.log(error);
       console.error("Error :", error.response.data.error);
       return error.response.data.error;
     }

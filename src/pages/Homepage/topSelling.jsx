@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Button, Img, Line, Text, RatingBar } from "components";
 import { ProductListState } from "../../utils/recoil/atoms";
 import { useRecoilState } from "recoil";
+import { Rating } from "components/rating";
 
 const TopSelling = () => {
   const [productList, setProductList] = useRecoilState(ProductListState);
@@ -40,7 +41,7 @@ const TopSelling = () => {
   return (
     <>
       <div className="md:gap-5 gap-[19px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-6 justify-center min-h-[auto] w-full">
-      {productList.slice(0,7).map((product, index) => (
+      {productList.slice(0,6).map((product, index) => (
                    <div key={index} className="h-[336px] relative w-full" >
                    <div className="absolute h-[336px] inset-[0] justify-center m-auto w-full">
                      <Img
@@ -62,30 +63,27 @@ const TopSelling = () => {
                      <div className="flex flex-col gap-[11px] items-start justify-start ml-1.5 md:ml-[0] w-[76%] md:w-full">
                        <div className="flex flex-col font-cormorant items-center justify-start">
                          <Text
-                           className="text-black-900 text-lg"
+                           className="text-black-900 text-lg  md:text-[20px]"
                            size="txtCormorantBold18"
                          >
                            {product.title}
                          </Text>
                        </div>
-                       <div className="flex flex-col font-montserrat items-center justify-start w-full">
-                         <div className="flex flex-row items-start  w-full">
-                           <Text
-                             className="text-black-900 text-xs tracking-[0.60px]"
+                       <div className="flex flex-col font-montserrat items-start justify-start w-full">
+                       <Text
+                             className="text-black-900 text-sm tracking-[0.60px]"
                              size="txtMontserratRegular12"
                            >
-                             {product.category}
+                             {product.category} 
                            </Text>
-                           <RatingBar
-                             className="flex justify-between my-0.5 rounded-[1px] w-14"
-                             value={0}
-                             starCount={5}
-                             color="#c3937c"
-                             activeColor="#c3937c"
-                             size={12}
+                         <div className="flex flex-row items-center gap-[5px] w-full">
+                           
+                           <Rating
+                             value={5}
+                             
                            />
                            <Text
-                             className="text-black-900 text-xs"
+                             className="text-black-900 text-sm"
                              size="txtMontserratRegular12"
                            >
                              <span className="text-black-900 font-calistoga text-left font-normal">
@@ -101,7 +99,7 @@ const TopSelling = () => {
                          className="text-black-900 text-lg"
                          size="txtCalistogaRegular18"
                        >
-                         {product.price}
+                         {product.price} TND
                        </Text>
                      </div>
                    </div>

@@ -176,7 +176,7 @@ const CategoryPagePage = () => {
                         </div>
                       </div>
          
-                      <div className="flex flex-col font-montserrat gap-5 items-start justify-start w-full">
+                      <div className="mt-10 flex flex-col font-montserrat gap-5 items-start justify-start w-full">
                         <Text
                           className="text-red-300 text-xl w-auto"
                           size="txtCormorantBold20Red300"
@@ -342,7 +342,7 @@ const CategoryPagePage = () => {
                     <br></br>
                     <br></br>
                     <br></br>
-                    <div className="flex flex-col font-montserrat gap-5 items-start justify-start w-full">
+                    <div className="mt-10  flex flex-col font-montserrat gap-5 items-start justify-start w-full">
                       <Text
                         className="text-red-300 text-xl w-auto"
                         size="txtCormorantBold20Red300"

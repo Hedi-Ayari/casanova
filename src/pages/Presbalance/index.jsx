@@ -51,7 +51,7 @@ const PresbalancePage = () => {
     <>
       <div className="flex m-auto w-full">
         <div className="flex m-auto w-full justify-center w-[100%]">
-          <div className="bg-white-A700 w-[100%] pl-[5%]   border-solid flex flex-col items-start justify-end m-0 p-2 py-7 z-[1]">
+          <div className="bg-white-A700 w-[100%] pl-[5%]   border-solid flex flex-col items-start justify-end m-0 p-2 py-5 z-[1]">
             <div className="flex flex-col items-start justify-start w-[95%] md:w-full">
               <div className="flex md:flex-col flex-row gap-2 items-center justify-between w-full">
                 <div className="bg-white-A700 border border-black-900_0f border-solid flex flex-col gap-8 h-[182px] md:h-auto items-start justify-center pb-[3px] pt-6 sm:px-5 px-6 rounded-md w-[100%]">

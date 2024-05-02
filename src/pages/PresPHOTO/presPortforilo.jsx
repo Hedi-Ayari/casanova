@@ -106,7 +106,7 @@ const PresPortfolio = ({ user }) => {
                  <div className="flex flex-col gap-[11px] items-start justify-start ml-1.5 md:ml-[0] w-[76%] md:w-full">
                    <div className="flex flex-col font-cormorant items-center justify-start">
                      <Text
-                       className="text-black-900 text-lg"
+                       className="text-black-900 text-lg  md:text-[18px]"
                        size="txtCormorantBold18"
                      >
                        {product.title}

@@ -123,7 +123,7 @@ const PresproduitPage = ({ onItemClick }) => {
                                   alt="rectangle1665"
                                 />
                               </td>
-                              <td className="text-center w-[20%] text-[13px] text-gray-900_02">{product.title}</td>
+                              <td className="text-center w-[20%] text-[13px] text-gray-900_02  md:text-[18px]">{product.title}</td>
                               <td className="text-center w-[20%] text-[13px] text-gray-900_02">{product.description}</td>
                               <td className="text-center w-[20%]  text-[13px] text-gray-900_02">{product.price}</td>
                               <td>

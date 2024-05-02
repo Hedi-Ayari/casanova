@@ -26,7 +26,7 @@ const ProductDetailPagePage = () => {
                 <NavBar></NavBar>
       <div className="bg-white-A700 flex flex-col font-cormorant items-start justify-end  pt-[37px] w-full">
         <div className="flex flex-col md:gap-10 gap-[124px] items-start justify-start w-full">
-          <div className="flex flex-col items-start justify-start max-w-[100%] pr-[6%] pl-[6%]  md:px-5 w-full">
+          <div className="flex flex-col items-start justify-start max-w-[100%] pr-[6%] pl-[6%]  md:p-0 w-[95%] mx-auto w-full">
             <Line className="bg-red-300_3d h-px mt-[33px] w-full" />
             <ProductDetails></ProductDetails>
             <div className="flex flex-row font-cormorant gap-[68px] items-start justify-start mt-[62px] w-[27%] md:w-full">

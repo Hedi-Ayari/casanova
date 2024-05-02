@@ -40,7 +40,7 @@ const USERSETTINGPage = () => {
   const CreateIamge = useCreateImage();
 
   const fileInputRef = useRef(null);
-  const [imageProgress,setImageProgress] = useState(0)
+  const [imageProgress, setImageProgress] = useState(0)
   const [image, setImage] = useState(userData?.user?.picture || null);
   const [newImage, setImageChanged] = useState(null);
 
@@ -66,7 +66,7 @@ const USERSETTINGPage = () => {
     await formData.append("file", newFiles[0]);
 
     try {
-      const response = await CreateIamge(formData,handleUploadProgress);
+      const response = await CreateIamge(formData, handleUploadProgress);
       setImageChanged(response.file.filename);
       window.location.reload();
     } catch (error) {
@@ -77,8 +77,8 @@ const USERSETTINGPage = () => {
     fileInputRef.current.click();
   };
   const onSubmit = async (data) => {
-    if (data.password !== data.confirmPassword)  {
-      
+    if (data.password !== data.confirmPassword) {
+
       toast.custom(
         (t) => (
           <CustomToast
@@ -91,7 +91,7 @@ const USERSETTINGPage = () => {
           duration: 3000,
         }
       );
-      if(data.password.length < 8){
+      if (data.password.length < 8) {
         toast.custom(
           (t) => (
             <CustomToast
@@ -106,19 +106,19 @@ const USERSETTINGPage = () => {
         );
       }
     } else {
-      if(data.name==""){
-        data.name=userData?.user?.name
+      if (data.name == "") {
+        data.name = userData?.user?.name
       }
-      if(data.email==""){
+      if (data.email == "") {
         data.email = {
           primary: userData?.user?.email?.primary,
-        };     
-       }else{
+        };
+      } else {
         data.email = {
           primary: data.email,
-        };  
-       }
-      
+        };
+      }
+
       console.log(data)
       const response = await update(userData.user._id, data);
       if (response.status === 200) {
@@ -144,7 +144,7 @@ const USERSETTINGPage = () => {
         <div className="bg-white-A700 flex flex-col font-cormorant items-center justify-end mx-auto pt-[37px] w-full">
           <div className="flex flex-col md:gap-10 md:gap-[20px] gap-[20px] items-center justify-start w-full ">
             <form className="w-[75%] md:w-[100%] md:mt-6 " onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex flex-col items-start justify-start max-w-[1241px] mx-auto md:px-5 w-full ">
+              <div className="flex flex-col items-start justify-start max-w-[1241px] md:w-[95%] md:max-w-[95%] mx-auto md:p-0 w-full ">
                 <Text
                   className="mt-16 md:hideden sm:text-[23.38px] md:hidden md:text-[25.38px] text-[27.38px] text-red-300"
                   size="txtCormorantSemiBold2738"
@@ -168,17 +168,17 @@ const USERSETTINGPage = () => {
                 <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-full  border-solid-grey">
 
                   <div className="flex flex-col gap-[19px] items-center justify-start w-[35%] md:w-[100%] md:w-full">
-                    <div className="flex flex-col gap-8 items-center justify-start w-[30%] md:w-full py-6">
+                    <div className="flex flex-col gap-8 items-center justify-start md:gap-3 w-[30%] md:w-full py-6 md:py-3 md:py-2">
                       <div className="h-[151px] relative w-[151px]">
-                        <div className="bg-white-A700 gray_600_01_blue_gray_900_63_border h-[150px] m-auto outline outline-[3px] rounded-[50%] w-[150px]"></div>
                         <Img
                           className="absolute h-[151px] inset-[0] justify-center m-auto rounded-[70%] w-[151px]"
+                          style={{ border: "2px solid #a57761" }}
                           src={
                             userData?.user?.picture && !newImage
                               ? `${process.env.REACT_APP_API_BACK}/uploads/${userData?.user?.picture}`
                               : newImage
-                              ? `${process.env.REACT_APP_API_BACK}/uploads/${newImage}`
-                              : "../images/img_httpswwwpex.png"
+                                ? `${process.env.REACT_APP_API_BACK}/uploads/${newImage}`
+                                : "../images/img_httpswwwpex.png"
                           }
                           alt="profile_picture"
                         />
@@ -194,18 +194,18 @@ const USERSETTINGPage = () => {
                         )}
                       </Text>
                       <div className="w-[100%]">
-                      {imageProgress!=0 ? 
-                      (<> <ProgressBar  
-                        bgColor={"#a57761d9"}
-                      completed={imageProgress} />
-                      </>):
-                      (<></>)
+                        {imageProgress != 0 ?
+                          (<> <ProgressBar
+                            bgColor={"#a57761d9"}
+                            completed={imageProgress} />
+                          </>) :
+                          (<></>)
 
-                      }
+                        }
 
                       </div>
-                     
-                     
+
+
                     </div>
                     <div className="flex flex-col items-center justify-start w-full">
                       <Button
@@ -230,146 +230,140 @@ const USERSETTINGPage = () => {
                       ></input>
                     </div>
                   </div>
-                  <div className="flex flex-col md:pl-[0%] w-[65%] md:w-[100%]  border-solid-grey-2 py-6">
-                    <div className=" relative w-[100%] md:w-full">
-                      <div className=" flex flex-col inset-x-[0] items-center justify-start mx-auto top-[4%] w-[83%]">
-                        <div className="flex flex-col items-start justify-start w-full gap-[0.5em]">
-                          <div className="flex flex-row md:flex-col items-start justify-between gap-[1em] w-[100%] md:w-full">
-                            <div className="w-[100%]">
-                              <Text
-                                className="text-black-900 text-sm"
-                                size="txtCormorantRegular14"
-                              >
-                                PRÉNOM
-                              </Text>
+                  <div className="flex flex-col md:pl-[0%] w-[65%] md:w-[100%] px-4 py-5 md:py-0 md:px-0 border-solid-grey-2 py-9">
+                    <div className="relative w-[100%] md:w-full">
+                      <div className=" mx-auto top-[4%] w-[100%]">
+                          <div className=" md:hidden block w-[100%] py-3 md:py-2 md:w-full flex justify-between">
+                            <div className="w-[48%]">
+                              <Text className=" mb-2 text-black-900 text-sm" size="txtCormorantRegular14">PRÉNOM</Text>
                               <Input
-                              
                                 name="name"
                                 defaultValue={userData?.user?.name}
-
                                 register={register}
                                 placeholder=""
-                                className="p-0 w-full"
+                                className="px-3 w-full"
                                 wrapClassName="flex h-[35px]  w-full"
                                 shape="round"
                                 color="gray_300_01"
                                 variant="outline"
-                              ></Input>
+                              />
                             </div>
-                            <div className="w-[100%]">
-                              {" "}
-                              <Text
-                                className="text-black-900 text-sm pl-[2%]"
-                                size="txtCormorantRegular14"
-                              >
-                                NOM DE FAMILLE
-                              </Text>
+                            <div className="w-[48%]">
+                              <Text className=" mb-2 text-black-900 text-sm pl-[2%]" size="txtCormorantRegular14">NOM DE FAMILLE</Text>
                               <Input
-                              
                                 name="famillyName"
                                 defaultValue={userData?.user?.famillyName}
                                 register={register}
                                 placeholder=""
-                                className="p-0 w-full"
+                                className="px-3 w-full"
                                 wrapClassName="flex h-[35px]  w-full"
                                 shape="round"
                                 color="gray_300_01"
                                 variant="outline"
-                              ></Input>
+                              />
                             </div>
                           </div>
-                          <div className="flex sm:flex-col flex-row gap-5 items-center justify-between  w-full"></div>
-                          <Text
-                            className=" text-black-900 text-sm"
-                            size="txtCormorantRegular14"
-                          >
-                            EMAIL
-                          </Text>
+            
+                            <div className="w-[100%] md:block hidden py-3 md:py-2">
+                              <Text className=" mb-2 text-black-900 text-sm" size="txtCormorantRegular14">PRÉNOM</Text>
+                              <Input
+                                name="name"
+                                defaultValue={userData?.user?.name}
+                                register={register}
+                                placeholder=""
+                                className="px-3 w-full"
+                                wrapClassName="flex h-[35px]  w-full"
+                                shape="round"
+                                color="gray_300_01"
+                                variant="outline"
+                              />
+                            </div>
+                          <div className="w-[100%] w-[100%] md:block hidden py-3 md:py-2">
+                              <Text className=" mb-2 text-black-900 text-sm pl-[2%]" size="txtCormorantRegular14">NOM DE FAMILLE</Text>
+                              <Input
+                                name="famillyName"
+                                defaultValue={userData?.user?.famillyName}
+                                register={register}
+                                placeholder=""
+                                className="px-3 w-full"
+                                wrapClassName="flex h-[35px]  w-full"
+                                shape="round"
+                                color="gray_300_01"
+                                variant="outline"
+                              />
+                            </div>
+                        <div className="w-[100%] py-3 md:py-2">
+                          
+                          <Text className=" mb-2 text-black-900 text-sm" size="txtCormorantRegular14">EMAIL</Text>
                           <Input
-                            
                             defaultValue={userData?.user?.email?.primary}
                             name="email"
                             register={register}
                             placeholder=""
-                            className="p-0 w-full"
+                            className="px-3 w-full"
                             wrapClassName="flex h-[35px]  w-full"
                             shape="round"
                             color="gray_300_01"
                             variant="outline"
-                          ></Input>
+                          />
                         </div>
+                          <div className="w-[100%] py-3 md:py-2">
+
+                      <Text className=" mb-2 text-black-900 text-sm" size="txtCormorantRegular14">NOUVEAU MOT DE PASSE</Text>
+                      <Input
+                        register={register}
+                        name="password"
+                        placeholder=""
+                        className="px-3 w-full"
+                        wrapClassName="flex h-[35px] w-full"
+                        shape="round"
+                        color="gray_300_01"
+                        type="password"
+                        variant="outline"
+                      />
+                          </div>
+                        <div className=" mx-auto w-[100%] py-3 md:py-2">
+                        <Text className="mb-2 text-black-900 text-sm" size="txtCormorantRegular14">CONFIRMER LE MOT DE PASSE</Text>
+                      <Input
+                        register={register}
+                        type="password"
+                        name="confirmPassword"
+                        placeholder=""
+                        className="px-3 w-full"
+                        wrapClassName="flex h-[35px] w-full"
+                        shape="round"
+                        color="gray_300_01"
+                        variant="outline"
+                      />
+                      <Text className="mt-[13px] text-gray-500 text-xs" size="txtPoppinsLight12">8 caractères ou plus. Combinez des lettres majuscules et minuscules ainsi que des chiffres.</Text>
+                        </div>
+                      <div className="flex flex-row gap-[9px] items-center justify-end md:ml-[0]  mt-[37px] md:w-full">
+                        <Button
+                          type="button"
+                          className="cursor-pointer font-poppins leading-[normal] min-w-[137px] md:w-[49%] rounded-md text-center text-xs"
+                          color="black_900_3d"
+                          size="sm"
+                          variant="outline"
+                          onClick={(e) => navigate("/category")}
+                        >
+                          ANNULER
+                        </Button>
+                        <Button
+                          className="bg-red-300 h-10 justify-center pl-[34px] pr-[22px] sm:px-5 py-3 md:py-2 rounded-md text-white-A700 text-xs w-[137px]  md:w-[49%]"
+                          type="submit"
+                          size="sm"
+                          variant="outline"
+                        >
+                          ENREGISTRER
+                        </Button>
                       </div>
                     </div>
-                    <div>
-                      <div className=" bottom-[7%] flex flex-col inset-x-[0] items-start justify-start md:pt-[4%] mx-auto w-[83%] pt-[4%]">
-                        <Text
-                          className="text-black-900 text-sm"
-                          size="txtCormorantRegular14"
-                        >
-                          NOUVEAU MOT DE PASSE
-                        </Text>
-
-                        <Input
-                          register={register}
-                          name="password"
-                          placeholder=""
-                          className="p-0 w-full"
-                          wrapClassName="flex h-[35px] mt-4 w-full"
-                          shape="round"
-                          color="gray_300_01"
-                          type="password"
-                          variant="outline"
-                        ></Input>
-                        <Text
-                          className="mt-[25px] text-black-900 text-sm"
-                          size="txtCormorantRegular14"
-                        >
-                          CONFIRMER LE MOT DE PASSE
-                        </Text>
-                        <Input
-                          register={register}
-                          type="password"
-                          name="confirmPassword"
-                          placeholder=""
-                          className="p-0 w-full"
-                          wrapClassName="flex h-[35px] mt-4 w-full"
-                          shape="round"
-                          color="gray_300_01"
-                          variant="outline"
-                        ></Input>
-                        <Text
-                          className="mt-[13px] text-gray-500 text-xs"
-                          size="txtPoppinsLight12"
-                        >
-                          8 caractères ou plus. Combinez des lettres majuscules
-                          et minuscules ainsi que des chiffres.
-                        </Text>
-                        <div className="flex flex-row gap-[9px] items-center justify-end md:ml-[0]  mt-[37px] md:w-full">
-                  <Button
-                    type="button"
-                    className="cursor-pointer font-poppins leading-[normal] min-w-[137px] rounded-md text-center text-xs"
-                    color="black_900_3d"
-                    size="sm"
-                    variant="outline"
-                    onClick={(e) => navigate("/category")}
-                  >
-                    ANNULER
-                  </Button>
-                  <Button
-                    className="bg-red-300 h-10 justify-center pl-[34px] pr-[22px] sm:px-5 py-3 rounded-md text-white-A700 text-xs w-[137px]"
-                    type="submit"
-                    size="sm"
-                    variant="outline"
-                  >
-                    ENREGISTRER
-                  </Button>
-                </div>
                       </div>
                     </div>
-                  </div>
-
+                    
+            
                 </div>
-                
+
               </div>
             </form>
             <Footer></Footer>

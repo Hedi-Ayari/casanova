@@ -39,7 +39,7 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
       description: Description,
       image: filesList,
     };
-
+    console.log("ddata",data);
     try {
       const response = await Create(data);
       toast.custom(
@@ -100,7 +100,7 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
     <>
       <div className="flex m-auto w-full">
         <div className="flex m-auto w-full justify-center  w-[100%]">
-          <div className="bg-white-A700 border-solid flex flex-col items-start justify-end my-auto p-2 py-7 z-[1]">
+          <div className="bg-white-A700 border-solid flex flex-col items-start justify-end my-auto p-2 py-5 z-[1]">
             <Text
               className="text-2xl md:text-[0px] text-gray-900_02 sm:text-xl"
               size="txtMontserratRomanSemiBold24"
@@ -208,16 +208,14 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
                 *
               </span>
             </Text>
-            <Input
+            <textarea
               name="input_One"
-              onChange={(e) => setDescription(e)}
+              onChange={(e) => setDescription(e.target.value)}
               placeholder="Gateaux"
-              className="font-inter p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
-              wrapClassName="border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full"
-              shape="round"
-              color="gray_50"
-              size="lg"
-            ></Input>
+              rows={4}
+              style={{resize:"none",background:"rgb(249 250 251 / var(--tw-bg-opacity))",padding:"11px"}}
+              className="round round font-inter border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
+            ></textarea>
             <Text
               className="leading-[24.00px] mt-3 text-gray-600_03 text-sm"
               size="txtMontserratRomanRegular14Gray60003"
@@ -228,32 +226,22 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
                 120-160 characters is the recommended length for search engines.
               </>
             </Text>
-            <div id="cssportal-grid">
-              <div id="div1">
+            <div className="w-[100%] flex justify-between pt-5">
+              <div className="w-[48%]">
                 <Text
                   className="text-gray-600_03  text-xs w-auto"
                   size="txtMontserratRomanSemiBold12"
                 >
                   Categories :
                 </Text>
-              </div>
-
-              <div id="div2">
-                {" "}
-                <Text
-                  className="text-gray-600_03 pl-[25%] text-xs w-auto"
-                  size="txtMontserratRomanSemiBold12"
-                >
-                  SubCategorie :
-                </Text>
-              </div>
-
-              <div className="pt-[15%]" id="div3">
+                <div className="pt-4" >
                 {" "}
                 <select
                   onChange={handleCategoryChange}
                   placeholder="Categories"
                   value={selectedCategory}
+                  style={{width:"100%",resize:"none",background:"rgb(249 250 251 / var(--tw-bg-opacity))",padding:"11px"}}
+              className="round round font-inter border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
                 >
                   <option disabled value="">
                     Select Category
@@ -265,9 +253,23 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
                   ))}
                 </select>
               </div>
-              <div className="pt-[15%] pl-[25%]" id="div4">
-                {" "}
-                <select   onChange={(e) => setProductSubCat(e.target.value)} placeholder="Subcategories">
+              </div>
+
+              <div className="w-[48%]">
+                
+                <Text
+                  className="text-gray-600_03 text-xs w-auto"
+                  size="txtMontserratRomanSemiBold12"
+                >
+                  SubCategorie :
+                </Text>
+                <div className="pt-4" >
+                
+                <select 
+                style={{width:"100%",resize:"none",background:"rgb(249 250 251 / var(--tw-bg-opacity))",padding:"11px"}}
+                className="round round font-inter border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
+
+                onChange={(e) => setProductSubCat(e.target.value)} placeholder="Subcategories">
                   <option selected disabled>Select sub Categorie</option>
                   {subcategories.map((subcat) => (
                     <option value={subcat._id} key={subcat._id} >
@@ -276,6 +278,10 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
                   ))}
                 </select>
               </div>
+              </div>
+
+              
+             
             </div>
 
             <br></br>

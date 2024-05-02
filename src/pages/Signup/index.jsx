@@ -92,6 +92,7 @@ const Signup = () => {
                       className="h-[100px] md:h-auto object-cover w-[36%]"
                       src="images/img_logo4white1.png"
                       alt="logo4whiteOne"
+                      onClick={() => navigate('/homePage')}
                     />
                     <Text
                       className="sm:text-[32px] md:text-[38px] text-[42px] text-white-A700 uppercase w-full"
@@ -116,7 +117,7 @@ const Signup = () => {
                       </Alert>
                     </Stack>
                   )}
-                  <div className="w-[50%] md:w-[90%] mt-5">
+                  <div className="w-[50%] md:w-[100%] mt-5">
                   <Input
                     name="businessName"
                     onChange={(e) => setBusniessName(e)}

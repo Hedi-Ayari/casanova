@@ -59,6 +59,7 @@ const PresSignIn = () => {
                       className="h-[100px] md:h-[50px] md:h-auto object-cover md:w-[50px] w-[36%]"
                       src="../images/img_logo4white1.png"
                       alt="logo4whiteOne"
+                      onClick={() => navigate('/homePage')}
                     />
                     <Text
                       className="sm:text-[32px] md:text-[38px] text-[42px] text-white-A700 uppercase w-full"
@@ -69,7 +70,7 @@ const PresSignIn = () => {
                     </Text>
                   </div>
                 </div>
-                <div className="bg-white-A700 h-[80%] flex md:flex-1 flex-col md:p-[3%] items-start md:justify-center justify-start p-[190px] md:px-10 sm:px-5 rounded-sm w-[64%] md:w-full">
+                <div className="bg-white-A700 h-[80%] flex md:flex-1 flex-col md:p-[3%] items-start md:justify-center justify-start p-[190px] md:px-10 sm:px-5 rounded-sm w-[70%] md:w-full">
                   <Text
                     className="md:ml-[0] ml-[62px] sm:text-3xl md:text-[32px] text-[34px] text-red-300 tracking-[2.72px]"
                     size="txtCormorantBold34"

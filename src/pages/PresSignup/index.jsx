@@ -88,6 +88,7 @@ const PresSignup = () => {
                       className="h-[100px] md:h-auto object-cover w-[36%]"
                       src="images/img_logo4white1.png"
                       alt="logo4whiteOne"
+                      onClick={() => navigate('/homePage')}
                     />
                     <Text
                       className="sm:text-[32px] md:text-[38px] text-[42px] text-white-A700 uppercase w-full"

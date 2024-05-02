@@ -161,11 +161,7 @@ const DesktopHeader = () =>{
                 alt="vector_Two"
               />
             </div>
-            <Img
-              className=" responsiveCat absolute h-[720px] object-cover right-[10%] top-[3%] w-[34%]"
-              src="images/img_beautifulcoupl_615x485.png"
-              alt="beautifulcoupl"
-            />
+           
             <Text
               className="absolute bottom-[0] left-[8%] text-5xl sm:text-[38px] md:text-[44px] text-center text-red-300"
               size="txtCormorantBold48Red300"
@@ -260,8 +256,8 @@ const MobileHeader = () =>{
             <div className=" inset-x-[0] mx-auto top-[0] w-full">
               <div className="md:h-[70%] m-auto w-full">
                 <div className="flex flex-col h-full items-center justify-start m-auto w-full">
-                  <div className="flex flex-col md:gap-10 gap-24 justify-start w-full">
-                    <div className="bg-gray-100 flex flex-col items-center justify-start ml-4 removeMargin md:ml-[0] p-[18px] w-[100%] md:w-full">
+                  <div className="flex flex-col md:gap-5 gap-8 items-center justify-center w-full bg-gray-100">
+                    <div className=" flex flex-col items-center justify-start ml-4 removeMargin md:ml-[0] mx-auto w-[95%] ">
                       <div className="flex flex-col items-start justify-start mb-[66px] md:mb-[2%] w-[90%] md:w-full">
                         <div className="flex md:flex-col flex-row font-cormorant md:gap-10 items-start justify-between w-full">
                           <Text
@@ -340,48 +336,14 @@ const MobileHeader = () =>{
                             </div>
                           </div>
                         </div>
-                        <Img
+                      </div>
+                    </div>
+                    <Img
                           className="h-[720px] object-cover w-[100%]"
                           src="images/img_beautifulcoupl_615x485.png"
                           alt="beautifulcoupl"
                         />
-                      </div>
-                    </div>
-                    <div className="md:h-[434px] md:hidden  h-[558px] relative w-[94%] md:w-full">
-                      <Img
-                        className="absolute h-[395px] left-[0] object-cover top-[0] w-[27%]"
-                        src="images/img_035_395x366.png"
-                        alt="ThirtyFive"
-                      />
-                      <div className=" responsiveCat absolute bg-light_green-100 bottom-[0] flex flex-col items-start justify-start sm:px-5 px-[35px] right-[0] rounded-[14px] w-[92%]">
-                        <div className="flex flex-row gap-[29px] items-start justify-start w-1/5 md:w-full">
-                          <div className="flex flex-col items-start justify-start mt-[140px] w-[88%]">
-                            <Text
-                              className="sm:text-2xl md:text-[26px] text-[28px] text-black-900 text-center tracking-[0.56px]"
-                              size="txtCormorantBold28Black900"
-                            >
-                              CATÉGORIE
-                            </Text>
-                            <Text
-                              className="mt-3.5 text-base text-black-900 tracking-[0.32px]"
-                              size="txtMontserratLight16"
-                            >
-                              Check all services !
-                            </Text>
-                            <Button
-                              className="cursor-pointer font-montserrat leading-[normal] min-w-[203px] mt-5 rounded-[5px] text-center text-sm uppercase"
-                              color="red_300"
-                              size="sm"
-                              variant="fill"
-                              onClick={(e)=>navigate("/category")}
-                            >
-                              see all
-                            </Button>
-                          </div>
-                          <Line className="bg-black-900_23 h-[434px] w-px" />
-                        </div>
-                      </div>
-                    </div>
+                 
                   </div>
                 </div>
                 <Img
@@ -397,12 +359,7 @@ const MobileHeader = () =>{
               />
             </div>
           
-            <Text
-              className="p-5 text-5xl mt-6 sm:text-[38px] md:text-[44px] text-red-300"
-              size="txtCormorantBold48Red300"
-            >
-              TOP SELLING
-            </Text>
+          
             <Img
               className="absolute md:hidden bottom-[4%] h-[166px] right-[3%]"
               src="images/img_vector_red_300_166x157.svg"
@@ -470,8 +427,15 @@ const MobileHeader = () =>{
           
           </div>
         </div>
-       
+        <div className="w-[100%]">
+        <Text
+              className="p-5 text-5xl mt-6 sm:text-[38px] md:text-[44px] text-red-300 text-center"
+              size="txtCormorantBold48Red300"
+            >
+              TOP SELLING
+            </Text>
         <CategorieItems className=" responsiveCat absolute bottom-[2%] flex flex-row items-center justify-start py-[123px] right-[10%] w-[62%]" />
+        </div>
 
 
       </div>

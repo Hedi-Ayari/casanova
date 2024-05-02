@@ -80,7 +80,8 @@ export default function ChekoutsurplacePage() {
     cart.forEach((item) => {
       totalPrice += item.price * item.count;
     });
-    return totalPrice;
+    
+    return selectedOption== "surPlace" ? totalPrice : 15 + totalPrice;
   };
 
   return (
@@ -88,10 +89,10 @@ export default function ChekoutsurplacePage() {
     <NavBar></NavBar>
       <div className=" mt-7 md:mt-5 py-7 md:py-5 w-[100vw] h-[100%] md:h-[100%]  flex items-center justify-center">
         <div
-          className="w-[60vw] h-[100%] md:w-[100%] shadow-box"
+          className="w-[60vw] h-[100%] md:w-[95%] md:mx-auto shadow-box"
           style={{ border: "1px solide black", backgroundColor: "white",height:"100%",borderRadius:"8px" }}
         >
-          <div className="pt-[2%] flex flex-col align-center w-[100%] gap-y-15px">
+          <div className="pt-[2%] md:py-6 flex flex-col align-center w-[100%] gap-y-15px">
             <div className="flex items-center  justify-center  mx-4">
               {hasGift ? (
                 <>
@@ -110,7 +111,7 @@ export default function ChekoutsurplacePage() {
                   <Heading
                     size="s"
                     as="h2"
-                    className="!text-red-300 tracking-[2.72px]"
+                    className="!text-red-300 tracking-[2.72px] mb-4"
                   >
                     CHECK OUT
                   </Heading>
@@ -118,10 +119,10 @@ export default function ChekoutsurplacePage() {
               )}
             </div>
             <div className="flex flex-col items-center justify-center gap-5">
-              <div className="flex flex-row  md:flex-col items-center justify-center pt-[2%] gap-[2em]">
+              <div className="flex flex-row  md:flex-col items-center justify-center pt-[2%] gap-[2em] md:gap-[10px]">
                 {" "}
                 <Button
-                  className={`gap-[11px] tracking-[0.96px] min-w-[260px] flex items-center justify-center text-center cursor-pointer rounded-sm h-[33px] px-[35px] text-xs ${
+                  className={`gap-[11px] tracking-[0.96px] min-w-[260px] md:w-[100%] flex items-center justify-center text-center cursor-pointer rounded-sm h-[33px] px-[35px] text-xs ${
                     selectedOption === "surPlace"
                       ? "text-white-A700 bg-red-300"
                       : "text-gray-600_01 bg-gray-100"
@@ -136,7 +137,7 @@ export default function ChekoutsurplacePage() {
                   Paiement sur place
                 </Button>
                 <Button
-                  className={`gap-[7px] tracking-[0.96px] min-w-[260px] flex items-center justify-center text-center cursor-pointer rounded-sm h-[33px] px-[35px] text-xs ${
+                  className={`gap-[7px] tracking-[0.96px] min-w-[260px] md:w-[100%] flex items-center justify-center text-center cursor-pointer rounded-sm h-[33px] px-[35px] text-xs ${
                     selectedOption === "livraison"
                       ? "text-white-A700 bg-red-300"
                       : "text-gray-600_01 bg-gray-100"
@@ -154,9 +155,9 @@ export default function ChekoutsurplacePage() {
                 </Button>
               </div>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="w-[80%]">
+              <form onSubmit={handleSubmit(onSubmit)} className="w-[80%] md:w-[95%]">
                 <div className="flex flex-col  justify-center w-[100%]">
-                  <div className="flex flex-col items-start justify-start mt-[0%] w-[99%] gap-[13px]">
+                  <div className="flex flex-col items-start justify-start mt-[0%] w-[99%] gap-[100%] ">
                     <Input
                       register={register}
                       name="email"
@@ -165,7 +166,7 @@ export default function ChekoutsurplacePage() {
                     />
                     <div className="h-px w-full bg-gray-300" />
                   </div>{" "}
-                  <div className="flex flex-col items-start justify-start  w-[99%] mt-[51px] gap-[100%]">
+                  <div className="flex flex-col items-start justify-start  w-[99%] mt-[51px] md:mt-[30px] gap-[100%]">
                     <Input
                       register={register}
                       name="nom"
@@ -174,7 +175,7 @@ export default function ChekoutsurplacePage() {
                     />
                     <div className="h-px w-full bg-gray-300" />
                   </div>
-                  <div className="flex flex-col items-start justify-start  w-[99%] mt-[51px] gap-[100%]">
+                  <div className="flex flex-col items-start justify-start  w-[99%] mt-[51px] md:mt-[30px] gap-[100%]">
                     <Input
                       register={register}
                       name="phone"
@@ -186,7 +187,7 @@ export default function ChekoutsurplacePage() {
                   </div>
                   {selectedOption === "livraison" && (
                     <>
-                      <div className="flex flex-col items-start justify-start  w-[99%] mt-[51px] gap-[100%]">
+                      <div className="flex flex-col items-start justify-start  w-[99%] mt-[51px] md:mt-[30px] gap-[100%]">
                         <Input
                           register={register}
                           name="adresse"
@@ -197,7 +198,7 @@ export default function ChekoutsurplacePage() {
                       </div>
                     </>
                   )}
-                  <Text as="p" className="mt-[53px] tracking-[1.12px]">
+                  <Text as="p" className="mt-[53px] md:mt-[30px] tracking-[1.12px]">
                     <span>
                       {selectedOption === "livraison" ? "Date" : "Pick up Date"}
                     </span>
@@ -218,7 +219,7 @@ export default function ChekoutsurplacePage() {
                     }
                   />
                   <div className="h-px w-[99%] mt-[11px] bg-gray-300" />
-                  <div className="flex flex-row gap-[2em] justify-center pb-[2%] w-[99%] mt-10">
+                  <div className="flex flex-row gap-[2em] justify-center items-center pb-[2%] w-[99%] mt-10">
                     <Heading as="h2">TOTAL</Heading>
                     <Text
                       size="s"
@@ -228,25 +229,24 @@ export default function ChekoutsurplacePage() {
                       {
                         //to make the price dynamic 
                       }
-                       {calculateTotalPrice()} DT
+                       {calculateTotalPrice()}DT   
                     </Text>
                   </div>
-                  <div className="flex justify-center gap-[2em] pb-[2%] ">
-                    <Button
-                    type="button"
-                    onClick={(e) => navigate("/category")}
-
-                      size="sm"
-                      variant="outline"
-                      className="mb-0.5 tracking-[1.12px] font-medium md:w-[40%] w-[25%] rounded-[5px] flex items-center justify-center text-center cursor-pointer rounded-sm h-[47px] px-[35px] text-sm border-gray-600 border border-solid text-gray-600"
+                  <div className="flex justify-center md:justify-between gap-[2em] md:gap-[10px] py-[2%] ">
+                   <Button
+                          type="button"
+                          className="cursor-pointer font-poppins leading-[normal] min-w-[137px] md:w-[49%] rounded-md text-center text-xs"
+                          color="black_900_3d"
+                          size="sm"
+                          variant="outline"
+                          onClick={(e) => navigate("/category")}
                     >
                       Back
                     </Button>
                     <Button
-                      color="red_300"
-                      size="sm"
-                      className="tracking-[1.12px] font-medium md:w-[40%] w-[25%] rounded-[5px] flex items-center justify-center text-center cursor-pointer rounded-sm h-[47px] px-[35px] text-sm bg-red-300 text-white-A700"
-                      type="Submit"
+                          className="bg-red-300 h-10 justify-center pl-[34px] pr-[22px] sm:px-5 py-3 md:py-2 rounded-md text-white-A700 text-xs w-[137px]  md:w-[49%]"
+                          type="submit"
+                          size="sm"
                     >
                       Envoyer
                     </Button>
