@@ -175,9 +175,9 @@ const USERSETTINGPage = () => {
                           style={{ border: "2px solid #a57761" }}
                           src={
                             userData?.user?.picture && !newImage
-                              ? `${process.env.REACT_APP_API_BACK}/uploads/${userData?.user?.picture}`
+                              ? `${process.env.REACT_APP_API_BACK_IMG}/uploads/${userData?.user?.picture}`
                               : newImage
-                                ? `${process.env.REACT_APP_API_BACK}/uploads/${newImage}`
+                                ? `${process.env.REACT_APP_API_BACK_IMG}/uploads/${newImage}`
                                 : "../images/img_httpswwwpex.png"
                           }
                           alt="profile_picture"
