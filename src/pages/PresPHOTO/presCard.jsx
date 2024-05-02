@@ -12,7 +12,7 @@ const PresCard = ({user}) => {
 
             <Img
               className="h-[100%] md:h-auto rounded-[50%] w-[100%]"
-              src={process.env.REACT_APP_API_BACK + "/uploads/" + user.picture}
+              src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + user.picture}
               alt="ellipseTwentyThree"
             />
             </div>

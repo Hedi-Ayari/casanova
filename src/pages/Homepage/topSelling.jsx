@@ -46,7 +46,7 @@ const TopSelling = () => {
                    <div className="absolute h-[336px] inset-[0] justify-center m-auto w-full">
                      <Img
                        className="h-[336px] m-auto object-cover rounded-[14px] w-full"
-                       src={process.env.REACT_APP_API_BACK+"/uploads/"+product.image[0]}
+                       src={process.env.REACT_APP_API_BACK_IMG+"/uploads/"+product.image[0]}
                        alt="product Image"
                      />
                      <Button

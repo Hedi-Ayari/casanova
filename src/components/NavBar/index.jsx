@@ -136,7 +136,7 @@ const NavBar = () => {
           onClick={handleImageClick}
           src={
             userData?.user?.picture
-              ? process.env.REACT_APP_API_BACK +
+              ? process.env.REACT_APP_API_BACK_IMG +
                 "/uploads/" +
                 userData?.user?.picture
               : "../images/defaultProfilePicCopy.jpg"
@@ -335,7 +335,7 @@ const NavBar = () => {
               className="h-[40px] md:h-auto md:ml-[0]  rounded-[50%] w-[40px]"
               src={
                 userData?.user?.picture
-                  ? process.env.REACT_APP_API_BACK +
+                  ? process.env.REACT_APP_API_BACK_IMG +
                     "/uploads/" +
                     userData?.user?.picture
                   : "../images/defaultProfilePicCopy.jpg"

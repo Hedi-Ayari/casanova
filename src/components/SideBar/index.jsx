@@ -17,7 +17,7 @@ const Sidebar = ({ userData, onItemClick }) => {
               <div className="border border-blue_gray-100_01 border-solid flex flex-col h-[45px] items-center justify-end p-[3px] rounded-[22px] w-[45px]">
                 <Img
                  className="h-[38px] md:h-auto object-cover rounded-[19px] w-[37px] sm:w-full"
-                 src={userData?.user?.picture ? process.env.REACT_APP_API_BACK + "/uploads/" + userData?.user?.picture : "../images/defaultProfilePic.jpg"}
+                 src={userData?.user?.picture ? process.env.REACT_APP_API_BACK_IMG + "/uploads/" + userData?.user?.picture : "../images/defaultProfilePic.jpg"}
                  alt="avatar"
                 />
               </div>

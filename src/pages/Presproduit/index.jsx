@@ -119,7 +119,7 @@ const PresproduitPage = ({ onItemClick }) => {
                               <td  className="text-left w-[20%] text-[13px] text-gray-900_02">
                                 <img
                                   className="w-[100%] h-[55px] sm:h-auto object-contain md:object-contain rounded text-left"
-                                  src={process.env.REACT_APP_API_BACK + "/uploads/" + product.image[0]}
+                                  src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + product.image[0]}
                                   alt="rectangle1665"
                                 />
                               </td>

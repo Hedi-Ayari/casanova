@@ -141,7 +141,7 @@ const ImageList = ({userData}) => {
                 />
               </Button>
               <div className="flex flex-col h-16 items-center justify-start ml-2 md:ml-[0] px-2 w-16">
-              <Img className="h-16 md:h-auto object-cover rounded-lg w-full" src={process.env.REACT_APP_API_BACK + "/uploads/" + fileName} alt={fileName} />
+              <Img className="h-16 md:h-auto object-cover rounded-lg w-full" src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + fileName} alt={fileName} />
 
               </div>
               <div className="flex flex-col gap-[5px] items-start justify-start ml-6 md:ml-[0]">

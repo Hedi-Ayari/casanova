@@ -46,7 +46,7 @@ const CartItem = ({ item, onRemove, index }) => {
      <div className="flex flex-1  flex-col md:gap-5 items-start justify-start my-0 w-full marginTop">
        <Img
          className="h-[135px] object-fill rounded-[14px] w-[100%]"
-         src={process.env.REACT_APP_API_BACK + "/uploads/" + item.image[0]}
+         src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + item.image[0]}
          alt="imageSeven"
        />
 
@@ -128,7 +128,7 @@ const CartItem = ({ item, onRemove, index }) => {
       <div className="flex flex-1 md:flex-col flex-row md:gap-5 items-start justify-start my-0 w-full marginTop">
         <Img
           className="h-[124px] md:h-auto object-cover rounded-[14px] w-[124px]"
-          src={process.env.REACT_APP_API_BACK + "/uploads/" + item.image[0]}
+          src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + item.image[0]}
           alt="imageSeven"
         />
         <div className="flex md:flex-1 flex-col gap-[21px] items-start justify-start ml-7 md:ml-[0] md:mt-0 mt-[5px] w-[30%] md:w-full">

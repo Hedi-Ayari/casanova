@@ -147,7 +147,7 @@ const VideoList = ({ userData }) => {
           />
         ) :  (
           <video className="h-16 md:h-auto object-cover rounded-lg w-full" control={false}>
-            <source src={process.env.REACT_APP_API_BACK + "/uploads/" + file} type={file.type} />
+            <source src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + file} type={file.type} />
             Your browser does not support the video tag.
           </video>
         ) }

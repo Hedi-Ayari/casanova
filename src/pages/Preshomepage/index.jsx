@@ -365,7 +365,7 @@ const PreshomepagePage = ({ userData }) => {
                       className="h-[100%] object-contain rounded-lg w-[100%]"
                       src={
                         image
-                          ? `${process.env.REACT_APP_API_BACK}/uploads/${image}`
+                          ? `${process.env.REACT_APP_API_BACK_IMG}/uploads/${image}`
                           : "../images/img_image13_65x258.png"
                       } // Use the uploaded image if available, otherwise fallback to the default image
                       alt="imageThirteen"

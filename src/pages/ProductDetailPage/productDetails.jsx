@@ -57,7 +57,7 @@ const ProductDetails = () => {
                 <Img
                   className="h-[167px] object-cover rounded-[20px] w-full"
                   src={
-                    process.env.REACT_APP_API_BACK + "/uploads/" + image
+                    process.env.REACT_APP_API_BACK_IMG + "/uploads/" + image
                   }
                   alt={`image_${index}`}
                 />
@@ -75,7 +75,7 @@ const ProductDetails = () => {
             <Img
               className="h-[100%] m-auto object-cover md:object-fill rounded-[14px] w-full"
               src={
-                process.env.REACT_APP_API_BACK + "/uploads/" + product.image[0]
+                process.env.REACT_APP_API_BACK_IMG + "/uploads/" + product.image[0]
               }
               alt="imageEleven"
             />
@@ -105,7 +105,7 @@ const ProductDetails = () => {
                 className="h-[64px]  md:h-[56px] md:ml-[0] mr-[3%] rounded-[50%] md:w-[56px] w-[64px] object-cover"
                 src={
                   product.owner?.picture
-                    ? process.env.REACT_APP_API_BACK +
+                    ? process.env.REACT_APP_API_BACK_IMG +
                     "/uploads/" +
                     product.owner?.picture
                     : "../images/defaultProfilePic.jpg"
