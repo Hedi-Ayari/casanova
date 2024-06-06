@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Drawer from '@mui/material/Drawer';
 
-import { useDispatch, useSelector } from 'react-redux';
 
 import { Link, useNavigate } from 'react-router-dom';
 
