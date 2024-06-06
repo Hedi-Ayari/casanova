@@ -214,7 +214,7 @@ setProduct(prevState => ({
                                     >
                                       <div className="flex justify-between items-center gap-[10px] font-montserrat w-full" >
                                         <div className="w-[22.5%]">
-                                          <img src={'http://localhost:3001/uploads/' + x.id_product?.image[0]} alt="" width={'80%'} style={{ borderRadius: "11px" }} />
+                                          <img src={'https://www.casanova-event.com/uploads/' + x.id_product?.image[0]} alt="" width={'80%'} style={{ borderRadius: "11px" }} />
                                         </div>
                                         <div className="w-[40%]">
                                           <p style={{fontWeight:'600'}}> {x.id_product?.title}</p>
@@ -252,7 +252,7 @@ setProduct(prevState => ({
                                   :
                                   <div className="flex justify-between items-center gap-[10px] py-3 font-montserrat w-full" style={{ borderBottom: '1px solid #000' }}>
                                     <div className="w-[22.5%]">
-                                      <img src={'http://localhost:3001/uploads/' + x.id_product?.image[0]} alt="" width={'80%'} style={{ borderRadius: "11px" }} />
+                                      <img src={'https://www.casanova-event.com/uploads/' + x.id_product?.image[0]} alt="" width={'80%'} style={{ borderRadius: "11px" }} />
                                     </div>
                                     <div className="w-[40%]">
                                       <p className=""> {x.id_product?.title}</p>
