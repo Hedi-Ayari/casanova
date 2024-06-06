@@ -32,8 +32,9 @@
     justify-content: center;
     align-items: center;
 }
-.input-brown{
-
+.input-browns{
+    
+    border: 1px solid rgb(195 147 124)  ;
     border-radius: 5px;
 }
 

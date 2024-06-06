@@ -227,7 +227,7 @@ setProduct(prevState => ({
 
 
 
-                                          <button className="button-brown">Noter</button>
+                                          <button className="button-browns">Noter</button>
 
                                         </div>
                                       </div>
@@ -242,7 +242,7 @@ setProduct(prevState => ({
                                         <Rating edit={true} onChange={hnadleRating}></Rating>
                                       </div>
                                       <div className="mb-3">
-                                        <textarea style={{ width: "100%", resize: "none", }} placeholder="Votre Avis est trés importante..." className="input-brown" rows="3" onChange={e => setTextArea(e.target.value)}></textarea>
+                                        <textarea style={{ width: "100%", resize: "none", }} placeholder="Votre Avis est trés importante..." className="input-browns" rows="3" onChange={e => setTextArea(e.target.value)}></textarea>
                                       </div>
                                       <div className="my-3">
                                         <button style={{ width: "100%", resize: "none", }} onClick={e => handleSubmit(x)} className="button-brown">Envoyer</button>

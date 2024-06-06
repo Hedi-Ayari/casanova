@@ -24,7 +24,7 @@ const WeDoTheBest = () => {
             >
               WHAT WE DO BEST !
             </Text>
-            <div className="absolute bg-white-A700 bottom-[0] h-[289px] left-[2%] rounded-[20px] w-[36%] sm:w-full">
+            <div className="absolute bg-white-A700 bottom-[0] h-[289px] left-[2%] md:left-[0%] rounded-[20px] w-[36%] sm:w-full">
               <Img
                 className="h-[289px] m-auto object-cover rounded-[20px] w-full"
                 src="images/img_image11_289x407.png"

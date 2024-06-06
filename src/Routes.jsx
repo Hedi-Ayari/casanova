@@ -117,7 +117,6 @@ const ProjectRoutes = () => {
             <Route path="/Checkout" element={ loggedIn ? <Checkout /> : <Navigate to="/Signup"  />} />
             <Route path="/cart" element={loggedIn ?  <Cart />  : <Navigate to="/Signup"  />} /> 
             <Route path="/Dashboard" element={loggedIn ? <Dashboard /> : <Navigate to="/Signup" />} />
-            <Route path="/feedback/:id/:id_order" element={loggedIn ? <FeedbackPage /> : <Navigate to="/Signup" />} />
             <Route path="/usersetting" element={loggedIn ?<USERSETTING />: <Navigate to="/Signup" />} />
             <Route path="/mes-ordres" element={loggedIn ?<OrderPage />: <Navigate to="/Signup" />} />
             <Route path="/one-ordre/:id" element={loggedIn ?<OneOrderPage />: <Navigate to="/Signup" />} />

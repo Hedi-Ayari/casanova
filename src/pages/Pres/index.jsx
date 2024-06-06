@@ -256,10 +256,7 @@ const PresPage = () => {
                           VIDEOS
                         </Text>
                       </div>
-                      <div className="flex flex-col relative w-full">
-                        <Line className="bg-red-300_1c h-px mx-auto w-full" />
-                        <Line className="bg-red-300 h-0.5 mb-auto mt-[-1px] w-[22%] z-[1]" />
-                      </div>
+                     
                     </div>
                   </div>
                   <Button

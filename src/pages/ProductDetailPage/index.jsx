@@ -111,7 +111,7 @@ const ProductDetailPagePage = () => {
               <Line className="bg-red-300_1c h-px mx-auto w-full" />
               <Line className="bg-red-300 h-0.5 mb-auto ml-[0px] mt-[-1px] w-[12%] z-[1]" />
             </div>
-            <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start mt-[22px] w-full">
+            <div className="flex flex-row md:gap-5 items-center justify-start mt-[22px] md:mt-[10px] md:mb-[5px] w-full">
               <Text
                 className="text-2xl md:text-[22px] text-black-900 sm:text-xl"
                 size="txtCormorantBold24"
@@ -140,7 +140,6 @@ const ProductDetailPagePage = () => {
         }}
         modules={[FreeMode, Pagination]}
         className={"mySwiper w-[100%] h-[300px]" }
-        style={{height:"300px!important"}}
       
       >
 

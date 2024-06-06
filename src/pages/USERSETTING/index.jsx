@@ -171,7 +171,7 @@ const USERSETTINGPage = () => {
                     <div className="flex flex-col gap-8 items-center justify-start md:gap-3 w-[30%] md:w-full py-6 md:py-3 md:py-2">
                       <div className="h-[151px] relative w-[151px]">
                         <Img
-                          className="absolute h-[151px] inset-[0] justify-center m-auto rounded-[70%] w-[151px]"
+                          className="absolute h-[151px] inset-[0] justify-center m-auto rounded-[10px] w-[151px]"
                           style={{ border: "2px solid #a57761" }}
                           src={
                             userData?.user?.picture && !newImage

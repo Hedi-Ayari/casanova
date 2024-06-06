@@ -38,7 +38,8 @@ const CategorieItems = (props) => {
           delay: 1000,
           disableOnInteraction: false,
         }}
-        slidesPerView={isTabletOrMobile ? 1.1 : 4.5}
+        centeredSlides={isTabletOrMobile ? true : false}
+        slidesPerView={isTabletOrMobile ? 1.1 : 2.5}
         spaceBetween={isTabletOrMobile   ? 10 : 30}
         pagination={{
           clickable: true,

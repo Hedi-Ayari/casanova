@@ -16,7 +16,7 @@
     font-size: 20px;
     color: green;
   }
-  .button-brown{
+  .button-browns{
     height: 40px;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@
     .border-solid-grey-2{
       border-left: none;
     }
-    .button-brown{
+    .button-browns{
       height: 32px;
       display: flex;
       justify-content: center;

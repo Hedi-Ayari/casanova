@@ -89,7 +89,7 @@ export const OneOrderItems = ({ product, id, is_evaluated }) => {
                 </div>
 
 
-                <div className="w-[100%] " >
+                <div className="w-[100%] mb-4" >
                     <div className="flex justify-between " >
                         <div className="flex gap-[20px]">
                             <div className="image-bor">
@@ -106,7 +106,7 @@ export const OneOrderItems = ({ product, id, is_evaluated }) => {
 
 
 
-                <div className="flex justify-between items-end my-3">
+                <div className="flex justify-between items-end mt-3 mb-6">
                     <div>
                         <p className="text-sub">Prix</p>
                         <p className="text-price">{product.id_product.price}<span className="text-price-span">TND</span></p>
@@ -116,8 +116,9 @@ export const OneOrderItems = ({ product, id, is_evaluated }) => {
                         <p className="text-date-main">{product.owner.businessName}</p>
                     </div>
                 </div>
-                {isevaluated == false  && <div className="mt-4">
-                    <div className="flex justify-center text-[18px] font-montserrat">
+                {isevaluated == false  && 
+                <div className="mt-4">
+                    <div className="flex justify-center text-[18px] font-montserrat ">
                         <p>Noter le service du prestataire </p>
 
                     </div>
@@ -126,10 +127,10 @@ export const OneOrderItems = ({ product, id, is_evaluated }) => {
                         <Rating edit={true} onChange={hnadleRating}></Rating>
                     </div>
                     <div className="mb-3">
-                        <textarea style={{ width: "100%", resize: "none", }} placeholder="Votre Avis est trés importante..." className="input-brown" rows="3" onChange={e => setTextArea(e.target.value)}></textarea>
+                        <textarea style={{ width: "100%", resize: "none", }} placeholder="Votre Avis est trés importante..." className="input-browns" rows="3" onChange={e => setTextArea(e.target.value)}></textarea>
                     </div>
                     <div className="my-3">
-                        <button style={{ width: "100%", resize: "none", }} onClick={e => handleSubmit(product)} className="button-brown">Envoyer</button>
+                        <button style={{ width: "100%", resize: "none", }} onClick={e => handleSubmit(product)} className="button-browns">Envoyer</button>
                     </div>
                 </div>}
                 

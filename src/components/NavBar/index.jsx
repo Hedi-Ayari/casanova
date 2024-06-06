@@ -131,7 +131,7 @@ const NavBar = () => {
               {userData?.user ?
             <div className="flex items-center gap-[10px]">
                  <Img
-                 className="h-[24px] md:h-auto md:ml-[0]  rounded-[50%] w-[24px]"
+                 className="h-[24px] md:h-auto md:ml-[0]  rounded w-[24px]"
                  src="../images/cart.svg"
                  alt="bag"
                  onClick={() => navigate(`/cart`)}
