@@ -47,7 +47,7 @@ const PresSignIn = () => {
 
   return (
     <>
-   <div className=" flex flex-col font-cormorant sm:gap-10 md:gap-10 gap-[69px] items-center justify-end mx-auto md:pt-[0%] pt-[55px] w-full">
+   <div className=" flex flex-col font-cormorant sm:gap-10 md:gap-10 gap-[69px] items-center justify-end mx-auto md:pt-[0%] w-full">
         <div className=" h-[100%] relative w-full">
         <div className="bg-red-300  md:h-[100vh] inset-x-[0] mx-auto rounded-[2px] shadow-bs3 top-[0%] w-[81%] md:w-full">
             <div className="flex flex-col h-full items-center justify-start m-auto w-full md:h-[100%]">

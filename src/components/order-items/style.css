@@ -1,0 +1,92 @@
+.card-item{
+    margin: 2.5rem 0;
+    padding: 0 1rem;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.09);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.09);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.09);
+    border-radius: 10px;
+}
+
+.image-bor{
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+}
+
+.btn-eval{
+    width: 100%;
+    height: 45px;
+    background:#A67861 ;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Montserrat;
+}
+.btn-done-eval{
+    width: 100%;
+    height: 45px;
+    background:#53D776 ;
+    color: white;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Montserrat;
+}
+.text-absolute{
+    color: #A67861;
+    font-size: 18px;
+    position: absolute;
+    right: 0%;
+    top: 5%;
+}
+
+.text-sub{
+    font-size: 12px;
+    color: #9796A1;
+}
+
+.text-hash-main{
+    color: #A67861;
+}
+
+.text-date-main{
+    font-weight: 500;
+}
+
+.text-price{
+    font-size: 36px;
+    font-weight:600 ;
+}
+.text-price-span{
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .btn-eval{
+        width: 100%;
+        height: 36px;
+        background:#A67861 ;
+        color: #fff;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+    .btn-done-eval{
+        width: 100%;
+        height: 45px;
+        background:#A67861 ;
+        color: #fff;
+        border-radius: 8px;
+    }
+    .text-price{
+        font-size: 24px;
+        font-weight:600 ;
+    }
+  }

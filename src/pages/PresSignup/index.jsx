@@ -78,7 +78,7 @@ const PresSignup = () => {
     <>
       <div className="">
   
-        <div className="md:h-[100%] h-[890px] relative w-full">
+        <div className="md:h-[100%] h-[100vh] relative w-full">
           <div className="bg-red-300  h-[100%] inset-x-[0] mx-auto rounded-[2px] shadow-bs3 top-[0%] w-[81%] md:w-full">
             <div className="flex flex-col h-full items-center justify-start m-auto w-full">
               <div className="flex md:flex-col flex-row md:gap-5 items-center justify-evenly w-full">

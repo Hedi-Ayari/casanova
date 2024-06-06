@@ -5,41 +5,21 @@ import { useRecoilState } from "recoil";
 import { useGetUser } from "utils/functions";
 import NotFound from "pages/NotFound";
 import { useMediaQuery } from "react-responsive";
-const PresMedia = React.lazy(() => import("pages/PresMedia"));
-const PresproduitOne = React.lazy(() => import("pages/PresproduitOne"));
-const Presbalance = React.lazy(() => import("pages/Presbalance"));
-const PresSettings = React.lazy(() => import("pages/PresSettings"));
-const Presproduit = React.lazy(() => import("pages/Presproduit"));
-const Preshomepageaviabilty = React.lazy(
-  () => import("pages/Preshomepageaviabilty"),
-);
-const Preshomepage = React.lazy(() => import("pages/Preshomepage"));
-const Prescreatproduit = React.lazy(() => import("pages/Prescreatproduit"));
-const Preslandingpage = React.lazy(() => import("pages/Preslandingpage"));
+
 const PresPHOTO = React.lazy(() => import("pages/PresPHOTO"));
-const PresPHOTOOne = React.lazy(() => import("pages/PresPHOTOOne"));
 const USERSETTING = React.lazy(() => import("pages/USERSETTING"));
+const OrderPage = React.lazy(() => import("pages/mes-ordres"));
+const OneOrderPage = React.lazy(() => import("pages/one-ordres"));
 const Homepage = React.lazy(() => import("pages/Homepage"));
-
-
+const FeedbackPage = React.lazy(() => import("pages/Feedback"));
 const Signup = React.lazy(() => import("pages/Signup"));
-const PresSignup = React.lazy(() => import("pages/PresSignup"));
-
-
 const SignIn = React.lazy(() => import("pages/SignIn"));
-const PresSignIn = React.lazy(() => import("pages/PresSignIn"));
-
 const Checkout = React.lazy(() => import("pages/Checkout"));
-
-
 const CategoryPage = React.lazy(() => import("pages/CategoryPage"));
 const ProductDetailPage = React.lazy(() => import("pages/ProductDetailPage"));
-const Pres = React.lazy(() => import("pages/Pres"));
 const Cart = React.lazy(() => import("pages/Cart"));
-const Two = React.lazy(() => import("pages/Two"));
-const Four = React.lazy(() => import("pages/Four"));
 const LandingpagesThree = React.lazy(() => import("pages/LandingpagesThree"));
-const LandingpageContact = React.lazy(() => import("pages/LandingpageContact"));
+const LandingpageContact = React.lazy(() => import("pages/LandingPage/contactMain"));
 const LandingpagesSeven = React.lazy(() => import("pages/LandingpagesSeven"));
 const LandingpagesSix = React.lazy(() => import("pages/LandingpagesSix"));
 const LandingpagesFive = React.lazy(() => import("pages/LandingpagesFive"));
@@ -107,6 +87,7 @@ const ProjectRoutes = () => {
           <Route path="/landingpagesseven" element={<LandingpagesSeven />} />
 
           <Route path="/landingpagesthree" element={<LandingpagesThree />} />
+          <Route path="/contact" element={<LandingpageContact />} />
 
 
           <Route path="*" element={<NotFound />} />
@@ -130,17 +111,16 @@ const ProjectRoutes = () => {
          
           <Route path="/homepage" element={<Homepage />} /> 
           <Route path="/category" element={ <CategoryPage />   } />
-   
-          {/* Private routes */}
-          <Route path="/homepage" element={ <Homepage />} />
+          <Route path="/productdetailpage/:id" element={ <ProductDetailPage /> }  />
           {loggedIn && (
             <>
-          <Route path="/Checkout" element={ loggedIn ? <Checkout /> : <Navigate to="/Signup"  />} />
-          <Route path="/cart" element={loggedIn ?  <Cart />  : <Navigate to="/Signup"  />} /> 
-          <Route path="/productdetailpage/:id" element={loggedIn ?  <ProductDetailPage />  : <Navigate to="/Signup"  />} />
-             <Route path="/Dashboard" element={loggedIn ? <Dashboard /> : <Navigate to="/Signup" />} />
-
+            <Route path="/Checkout" element={ loggedIn ? <Checkout /> : <Navigate to="/Signup"  />} />
+            <Route path="/cart" element={loggedIn ?  <Cart />  : <Navigate to="/Signup"  />} /> 
+            <Route path="/Dashboard" element={loggedIn ? <Dashboard /> : <Navigate to="/Signup" />} />
+            <Route path="/feedback/:id/:id_order" element={loggedIn ? <FeedbackPage /> : <Navigate to="/Signup" />} />
             <Route path="/usersetting" element={loggedIn ?<USERSETTING />: <Navigate to="/Signup" />} />
+            <Route path="/mes-ordres" element={loggedIn ?<OrderPage />: <Navigate to="/Signup" />} />
+            <Route path="/one-ordre/:id" element={loggedIn ?<OneOrderPage />: <Navigate to="/Signup" />} />
 
             </>
           )}

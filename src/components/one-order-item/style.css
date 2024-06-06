@@ -1,0 +1,28 @@
+.card-item{
+    margin: 1.5rem 0;
+    padding: 1.5rem 1rem;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.09);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.09);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.09);
+    border-radius: 10px;
+}
+.image-bor{
+    width: 64px;
+    height: 64px;
+    object-fit: fill;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.09);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.09);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.09);
+}
+.btn-eval{
+    width: 100%;
+    height: 45px;
+    background:#A67861 ;
+    color: #fff;
+}
+
+.text-absolutse{
+    color: #A67861;
+    font-size: 18px;
+   
+}

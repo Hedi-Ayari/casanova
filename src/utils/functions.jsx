@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Get ,Register,Login,Create,CreateImage,getUser,GetId,DeleteFile,Update,Delete} from "../service/api";
+import { Get ,Register,Login,Create,CreateImage,getUser,GetId,DeleteFile,Update,Delete, Search} from "../service/api";
 import { ProductListState ,User} from "./recoil/atoms";
 import { useRecoilState } from "recoil";
 import { useQueryClient } from "react-query";
@@ -153,6 +153,7 @@ export function useGetById() {
 
 export function useGet() {
   async function useGet(modelName,querry) {
+    console.log(modelName,querry);
     try {
       const response = await Get(modelName,querry);
       return response; 
@@ -164,4 +165,17 @@ export function useGet() {
 
   return useGet;
 }
+export function useSearch() {
+  async function useSearch(modelName,querry) {
+    console.log(modelName,querry);
+    try {
+      const response = await Search(modelName,querry);
+      return response; 
+    } catch (error) {
+      console.error("Error :", error.response.data.error);
+      return error.response.data.error;
+    }
+  }
 
+  return useSearch;
+}

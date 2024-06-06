@@ -1,0 +1,52 @@
+.wrapper {
+    border: 3px solid blue;
+  }
+  .react-responsive-modal-modal{
+    width: 35%!important;
+  }
+  .container {
+    background-color: pink;
+  }
+  
+  .barCompleted {
+    background-color: #a57761d9;
+  }
+  
+  .label {
+    font-size: 20px;
+    color: green;
+  }
+  .button-brown{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color:rgb(195 147 124) ;
+    border-radius: 5px;
+    width: 100%;
+}
+  .border-solid-grey{
+    border: 1px solid #a0a0a0;
+  }
+  .border-solid-grey-2{
+    border-left: 1px solid #a0a0a0;
+  }
+  @media (max-width: 768px) {
+    .border-solid-grey{
+      border: none;
+    }
+    .border-solid-grey-2{
+      border-left: none;
+    }
+    .button-brown{
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      background-color:rgb(195 147 124) ;
+      border-radius: 5px;
+      width: 100%;
+  }
+  }

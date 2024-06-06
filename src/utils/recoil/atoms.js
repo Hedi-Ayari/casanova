@@ -28,3 +28,8 @@ export const ProductListState = atom({
     default: [], 
     effects_UNSTABLE: [persistAtom],
   });
+
+  export const drawerState = atom({
+    key: 'drawerState',
+    default: false,
+  });

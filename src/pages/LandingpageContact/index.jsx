@@ -11,52 +11,7 @@ const LandingpageContactPage = () => {
       <div className="bg-gray-100 font-montserrat h-[1032px] mx-auto relative w-full">
         <div className="h-[1038px] md:h-[999px] m-auto md:px-5 w-full">
           <div className="h-[1038px] md:h-[999px] m-auto w-full">
-            <Sidebar className="!sticky !w-[286px] bg-black-900 flex h-screen md:hidden inset-y-[0] justify-start left-[0] my-auto overflow-auto top-[0]">
-              <div className="flex flex-col items-center justify-end ml-[104px] mr-[82px] pt-[49px] md:px-10 sm:px-5 px-[49px] w-[35%]">
-                <Line className="bg-black-900 h-[778px] mt-[172px] w-px" />
-              </div>
-              <Text
-                className="ml-[61px] mr-[172px] text-base text-black-900"
-                size="txtMontserratRegular16"
-              >
-                HOME
-              </Text>
-              <Text
-                className="ml-16 mr-[163px] mt-[18px] text-base text-black-900"
-                size="txtMontserratRegular16"
-              >
-                ABOUT
-              </Text>
-              <Text
-                className="ml-[84px] mr-[123px] mt-[15px] text-base text-black-900"
-                size="txtMontserratRegular16"
-              >
-                CONTACT
-              </Text>
-              <Line className="bg-black-900 h-px mr-[225px] w-[22%]" />
-              <Text
-                className="ml-16 mr-[52px] mt-[23px] text-base text-black-900"
-                size="txtMontserratRegular16"
-              >
-                WEDDING PLANNER
-              </Text>
-              <Img
-                className="h-[177px] md:h-auto ml-[100px] mt-[87px] object-cover w-[66%]"
-                src="images/img_035_177x186.png"
-                alt="ThirtyFive"
-              />
-              <Img
-                className="h-[111px] ml-[130px] mr-11 w-[111px]"
-                src="images/img_vector_black_900_111x111.svg"
-                alt="vector"
-              />
-              <Text
-                className="leading-[25.00px] mb-[218px] ml-[59px] mr-[201px] mt-[7px] rotate-[90deg] text-base text-gray-600 tracking-[5.00px] uppercase w-[10%] sm:w-full"
-                size="txtMontserratRegular16Gray600"
-              >
-                PRÊT À ENTRER EN CONTACT ?
-              </Text>
-            </Sidebar>
+     
             <Img
               className="absolute h-[100px] inset-x-[0] mx-auto top-[16%]"
               src="images/img_maskgroup_black_900_100x1440.svg"
@@ -68,7 +23,7 @@ const LandingpageContactPage = () => {
               alt="maskgroup_One"
             />
             <Img
-              className="absolute h-7 object-cover right-[4%] top-[8%] w-[15%]"
+              className="absolute h-[] object-cover right-[4%] top-[8%] w-[15%]"
               src="images/img_logo22.png"
               alt="logoTwentyTwo"
             />

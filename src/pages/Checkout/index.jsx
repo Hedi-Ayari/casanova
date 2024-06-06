@@ -15,6 +15,8 @@ import { useRecoilState } from "recoil";
 import { style } from "motion";
 import NavBar from "components/NavBar";
 import Footer from "components/Footer";
+import { Alert } from "@mui/material";
+import { IoTriangle } from "react-icons/io5";
 
 export default function ChekoutsurplacePage() {
   const [cart, setCart] = useRecoilState(Cart);
@@ -23,52 +25,91 @@ export default function ChekoutsurplacePage() {
   const GetUser = useGetUser();
   const [user] = useRecoilState(User);
   const navigate = useNavigate();
+  const [nom,setNom] = useState("")
+  const [phone,setPhone] = useState("")
+  const [adresse,setadresse] = useState("")
+  const [email,setaemail]= useState("")
 
+  function handleNom(e){
+    console.log();
+    setNom(e.target.value)
+  }
+  function handleEmail(e){
+    setaemail(e.target.value)
+  }
+  function handlePhone(e){
+    setPhone(e.target.value)
+  }
+  function handleAddress(e){
+    setadresse(e.target.value)
+  }
   const [selectedOption, setSelectedOption] = useState("surPlace");
   const [startDate, setStartDate] = useState(new Date());
   const location = useLocation();
   const [hasGift, setHasGift] = useState(false);
   const { deliveryType } = location.state;
+  const { paymentType } = location.state;
   const [date, setDate] = useState(new Date());
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = async (data) => {
-    data = { ...data, date: date };
-    console.log(cart);
-    const response = await GetUser(user);
-    const body = {
-      modelName: "Order",
-      cart,
-      user: response.user,
-      livraision: deliveryType,
-      adresse: data?.adresse,
-      phone: data.phone,
-      date: data.date,
-    };
-    try {
-      const response = await Create(body);
-      navigate(`/category`);
-      toast.custom(
-        (t) => (
-          <CustomToast
-            data={t}
-            message="Order Created"
-            title="Info"
-          ></CustomToast>
-        ),
-        {
-          duration: 3000,
-        }
-      );
 
-      setCart([]);
+  const [error,setError] = useState(false)
+  
+  const onSubmit = async (data) => {
+    // Merge form data with additional fields
+    console.log(data);
+    data = { ...data, date: date };
+  
+    try {
+      const response = await GetUser(user);
+  
+      // Construct the request body
+      const body = {
+        modelName: "Order",
+        cart,
+        user: response.user,
+        livraision: deliveryType,
+        paymentType: paymentType,
+        adresse: data.adresse,
+        nom: data.nom,
+        phone: data.phone,
+        email:data.email,
+        date: data.date,
+      };
+  console.log("hiii");
+  // Validate input fields
+  if (!body.nom || selectedOption == "surPlace" && !body.adresse || !body.date || !body.phone || !body.email) {
+
+        setError(true);
+      } else {
+        setError(false);
+
+        await Create(body);
+  
+        // Show success toast
+        toast.custom(
+          (t) => (
+            <CustomToast
+              data={t}
+              message="Order Created"
+              title="Info"
+            />
+          ),
+          { duration: 3000 }
+        );
+  
+        // Clear cart and navigate
+        setCart([]);
+        navigate(`/mes-ordres`);
+      }
     } catch (error) {
       console.error("Error creating data:", error);
     }
   };
+
 
   useEffect(() => {
     const x = cart.some((product) => product.type === "gift");
@@ -156,6 +197,7 @@ export default function ChekoutsurplacePage() {
               </div>
 
               <form onSubmit={handleSubmit(onSubmit)} className="w-[80%] md:w-[95%]">
+                {error && <Alert severity="error" className="my-3" icon={<IoTriangle />}>  Vous donner remplir tous les champs !</Alert>}
                 <div className="flex flex-col  justify-center w-[100%]">
                   <div className="flex flex-col items-start justify-start mt-[0%] w-[99%] gap-[100%] ">
                     <Input
@@ -163,6 +205,7 @@ export default function ChekoutsurplacePage() {
                       name="email"
                       placeholder="Email"
                       className="w-[100%]"
+                      onChange={e =>handleEmail(e)}
                     />
                     <div className="h-px w-full bg-gray-300" />
                   </div>{" "}
@@ -172,6 +215,8 @@ export default function ChekoutsurplacePage() {
                       name="nom"
                       placeholder="Nom & Prenom"
                       className="w-full"
+                      onChange={e =>handleNom(e)}
+
                     />
                     <div className="h-px w-full bg-gray-300" />
                   </div>
@@ -182,6 +227,7 @@ export default function ChekoutsurplacePage() {
                       placeholder="Phone Number"
                       type="Number"
                       className="w-full"
+                      onChange={e => handlePhone}
                     />
                     <div className="h-px w-full bg-gray-300" />
                   </div>
@@ -193,6 +239,7 @@ export default function ChekoutsurplacePage() {
                           name="adresse"
                           placeholder="Adresse"
                           className="w-full"
+                          onChange={e=> handleAddress(e)}
                         />
                         <div className="h-px w-full bg-gray-300" />
                       </div>
@@ -239,7 +286,7 @@ export default function ChekoutsurplacePage() {
                           color="black_900_3d"
                           size="sm"
                           variant="outline"
-                          onClick={(e) => navigate("/category")}
+                          onClick={(e) => navigate("/category?cateogry=all")}
                     >
                       Back
                     </Button>

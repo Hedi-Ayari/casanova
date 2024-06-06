@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Img, Line, Text } from "components";
+import { Img, Line, RatingBar, Text } from "components";
 import moment from "moment"
 const PresCard = ({user}) => {
   return (
@@ -31,43 +31,26 @@ const PresCard = ({user}) => {
                 />
               </div>
         
-              <div className="flex flex-row font-calistoga items-start justify-end mt-[9px] w-[100%] md:w-full">
-                <Img
-                  className="h-3.5 w-3.5"
-                  src="../images/img_signal.svg"
-                  alt="signal"
-                />
-                <Img
-                  className="h-3.5 ml-1 w-3.5"
-                  src="../images/img_signal.svg"
-                  alt="signal_One"
-                />
-                <Img
-                  className="h-3.5 ml-1 w-3.5"
-                  src="../images/img_signal.svg"
-                  alt="signal_Two"
-                />
-                <Img
-                  className="h-3.5 ml-1 w-3.5"
-                  src="../images/img_signal.svg"
-                  alt="signal_Three"
-                />
-                <Img
-                  className="h-3.5 ml-1 w-3.5"
-                  src="../images/img_signal.svg"
-                  alt="signal_Four"
-                />
+              <div className="flex flex-row font-calistoga items-baseline justify-end mt-[9px] w-[100%] md:w-full">
+              <RatingBar
+                className="flex justify-between mb-[3px] mt-2 w-[78px]"
+                value={user.avg_note}
+                starCount={5}
+                activeColor="#a57761"
+                size={20}
+              ></RatingBar>
+                 
                 <Text
                   className="ml-1 text-[13px] text-black-900"
                   size="txtCalistogaRegular13"
                 >
-                  4.8
+                {user.note}
                 </Text>
                 <Text
                   className="ml-1 text-[13px] text-black-900"
                   size="txtCalistogaRegular13"
                 >
-                  (47 avis)
+                  ({user.feedback.length} Avis)
                 </Text>
               </div>
             </div>
@@ -118,7 +101,7 @@ const PresCard = ({user}) => {
                   className="text-[13px] text-black-900 text-right"
                   size="txtMontserratRomanMedium13"
                 >
-                  {user.createdAt && moment().format(user.createdAt ) || moment().format('YYYY-MM')}
+                  {user.createdAt && moment(user.createdAt).format('YYYY-MM' ) || moment().format('YYYY-MM')}
                 </Text>
               </div>
             </div>

@@ -14,6 +14,7 @@ const categoryOptionsList = [
 ];
 
 const Signup = () => {
+  
   const [selectedOption, setSelectedOption] = useState("Client");
 
   const [email, setEmail] = useState();
@@ -26,10 +27,12 @@ const Signup = () => {
   const [passwordConfirm, setPasswordConfirm] = useState();
   const [error, setError] = useState();
   const registerUser = useRegisterUser();
+  
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^.{6,}$/;
   const phoneRegex = /^\d{8}$/;
   const navigate = useNavigate();
+
   const handleSubmit = async () => {
     if (!passwordRegex.test(password)) {
       setError("Password must be at least 6 characters long");
@@ -82,7 +85,7 @@ const Signup = () => {
   return (
     <>
       <div className="">
-        <div className="md:h-[100%] h-[890px] relative w-full">
+        <div className="md:h-[100%] h-[100vh] relative w-full">
           <div className="bg-red-300  h-[100%] inset-x-[0] mx-auto rounded-[2px] shadow-bs3 top-[0%] w-[81%] md:w-full">
             <div className="flex flex-col h-full items-center justify-start m-auto w-full">
               <div className="flex md:flex-col flex-row md:gap-5 items-center justify-evenly w-full">

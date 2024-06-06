@@ -29,6 +29,7 @@ const Button = ({
   shape = "",
   size = "",
   variant = "",
+  onClick=() =>{},
   color = "",
   ...restProps
 }) => {
@@ -36,6 +37,8 @@ const Button = ({
     <button
       className={`${className} ${(shape && shapes[shape]) || ""} ${(size && sizes[size]) || ""} ${(variant && variants[variant]?.[color]) || ""}`}
       {...restProps}
+      onClick={onClick}
+      style={{color}}
     >
       {!!leftIcon && leftIcon}
       {children}

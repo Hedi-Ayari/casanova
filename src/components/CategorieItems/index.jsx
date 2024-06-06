@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -8,23 +8,42 @@ import "swiper/css/autoplay";
 import { Autoplay } from 'swiper/modules';
 
 import { Img, Text } from "components";
+import { useNavigate } from "react-router-dom";
+import { Get } from "service/api";
+import { useMediaQuery } from "react-responsive";
 
 const CategorieItems = (props) => {
+
+  const navigate = useNavigate();
+  const [categories,setCategories] = useState()
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const categories = await Get("Categorie");
+        setCategories(categories);
+        console.log(categories);
+      } catch (error) {
+        console.error("Error fetching categories:", error.message);
+      }
+    };
+    fetchCategories();
+  }, []);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' })
+
+
   return (
     <div className={props.className}>
        <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
         autoplay={{
           delay: 1000,
           disableOnInteraction: false,
         }}
-        slidesPerView={3}
+        slidesPerView={isTabletOrMobile ? 1.1 : 4.5}
+        spaceBetween={isTabletOrMobile   ? 10 : 30}
         pagination={{
           clickable: true,
         }}
-        loop={true}
-        speed={600}
+   
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -32,24 +51,23 @@ const CategorieItems = (props) => {
           modifier: 1,
         }}
        
-        modules={[Autoplay]}
         className="swiper-container"
       >
-        {props.categories.map((category, index) => (
-          <SwiperSlide key={index}>
-            <div key={index} className="relative">
+        {categories&&categories.length > 0 && categories.map((category, index) => (
+          <SwiperSlide key={index} className="relative cursor-pointer"  onClick={e => navigate("/category?category=" + category._id) }>
+            <div key={index} >
               <Img
                 className="h-[318px] m-auto object-cover rounded-[10px] w-full"
-                src={category.image}
+                src={process.env.REACT_APP_API_BACK_IMG+"/uploads/"+category.imageUrl}
                 alt={`image_${index}`}
               />
               <div className="absolute bg-light_green-100_ba bottom-[0] flex flex-row inset-x-[0] items-start justify-start mx-auto p-[19px] rounded-bl-[10px] rounded-br-[10px] w-full">
-                <div className="flex flex-row items-center justify-start mb-1 ml-2 md:ml-[0]">
+                <div className="flex flex-row items-center justify-center mb-1 ml-2 md:ml-0 md:w-[100%]">
                   <Text
-                    className="sm:text-[17px] md:text-[19px] text-[21px] text-black-900_c9"
+                    className="md:text-[28px] text-[21px] text-black-900_c9 text-center"
                     size="txtCormorantBold21Black900c9"
                   >
-                    {category.name}
+                    {category.title}
                   </Text>
                 </div>
               </div>
@@ -61,13 +79,5 @@ const CategorieItems = (props) => {
   );
 };
 
-CategorieItems.defaultProps = {
-  categories: [
-    { name: "ESPACE DE MARIAGE", image: "images/img_image15.png" },
-    { name: "MUSIC DE MARIAGE", image: "images/img_image15_318x279.png" },
-    { name: "cccc", image: "images/img_image15.png" },
-    { name: "cccc", image: "images/img_image15.png" },
-  ],
-};
 
 export default CategorieItems;

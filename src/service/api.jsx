@@ -17,6 +17,11 @@ export async function CreateImage(formData, onUploadProgress) {
     throw error;
   }
 }
+export async function GetCategory(modelName,categorie) {
+  const res = await customAxios.get(`/crudRouter/product-categorie/?modelName=${modelName}&category=${categorie}`);
+  return res.data;
+}
+
 export async function contact(data) {
   try {
 
@@ -42,6 +47,7 @@ export async function DeleteFile(userId,fileName,type) {
     throw error;
   }
 }
+
 export async function Create(data) {
   try {
 
@@ -58,9 +64,11 @@ export async function GetId(modelName,id) {
   if (id && id._id) {
     requestId = id._id;
   }
-  const res = await customAxios.get(`/crudRouter/${requestId}?modelName=${modelName}`);
+  const res = await customAxios.get(`/crudRouter/get/${requestId}?modelName=${modelName}`);
   return res.data;
 }
+
+
 
 
   export async function Get(modelName, searchQuery) {
@@ -68,7 +76,11 @@ export async function GetId(modelName,id) {
     const res = await customAxios.get(`/crudRouter?modelName=${modelName}${queryParams}`);
     return res.data;
   }
-  
+    export async function Search(modelName, searchQuery) {
+    const queryParams = searchQuery ? `&${serialize(searchQuery)}` : '';
+    const res = await customAxios.get(`/crudRouter/search?modelName=${modelName}${queryParams}`);
+    return res.data;
+  }
   function serialize(obj) {
     return Object.keys(obj)
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
@@ -77,6 +89,11 @@ export async function GetId(modelName,id) {
     
   export async function Update(modelName,id,data) {
     const res = await customAxios.put(`/crudRouter/${id}?modelName=${modelName}`,data);
+    return res.data;
+  }
+
+  export async function GetMyOder(modelName,id,data) {
+    const res = await customAxios.get(`/crudRouter/my-orders/${id}?modelName=${modelName}`);
     return res.data;
   }
 
@@ -92,6 +109,24 @@ export async function GetId(modelName,id) {
     return res;
   }
 
+  export async function CreateFeedBack(data) {
+    console.log(data);
+    const res = await customAxios.post(`/feedback/createFeedBack`,data);
+    console.log(res);
+    return res;
+  }
+
+  export async function GetByIdBackByUser(id) {
+    const res = await customAxios.get(`/feedback/getByIdBackByUser/`+id);
+    console.log(res);
+    return res;
+  }
+  export async function getFeedbackByProd(id) {
+    const res = await customAxios.get(`/feedback/getFeedbackByProd/`+id);
+    console.log(res);
+    return res;
+  }
+  
   export async function Login({body}) {
     const res = await customAxios.post(`/public/auth/login/`,body);
     return res.data;

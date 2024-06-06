@@ -1,0 +1,31 @@
+.wrapper {
+    border: 3px solid blue;
+  }
+  
+  .container {
+    background-color: pink;
+  }
+  
+  .barCompleted {
+    background-color: #a57761d9;
+  }
+  
+  .label {
+    font-size: 20px;
+    color: green;
+  }
+  
+  .border-solid-grey{
+    border: 1px solid #a0a0a0;
+  }
+  .border-solid-grey-2{
+    border-left: 1px solid #a0a0a0;
+  }
+  @media (max-width: 768px) {
+    .border-solid-grey{
+      border: none;
+    }
+    .border-solid-grey-2{
+      border-left: none;
+    }
+  }

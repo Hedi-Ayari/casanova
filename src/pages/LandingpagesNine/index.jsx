@@ -5,7 +5,7 @@ import { Img, Input, Line, Text } from "components";
 const LandingpagesNinePage = () => {
   return (
     <>
-      <div className="bg-gray-100_01 flex flex-col font-cormorant sm:gap-10 md:gap-10 gap-[69px] items-center justify-end mx-auto pt-[55px] w-full">
+      <div className="bg-gray-100_01 flex flex-col font-cormorant sm:gap-10 md:gap-10 gap-[69px] items-center justify-end mx-auto  w-full">
         <div className="h-[976px] md:px-5 relative rotate-[180deg] w-full">
           <div className="h-[976px] m-auto w-full">
             <div className="absolute bottom-[0] h-[922px] inset-x-[0] mx-auto w-full">

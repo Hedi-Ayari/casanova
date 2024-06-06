@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Img, Line, Text } from "components";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const navBar = useRef([]);
@@ -25,16 +26,16 @@ const NavBar = () => {
 
     }
   }, [path]);
+  const navigate = useNavigate()
   const handleContactClick = () => {
-    const windowHeight = window.innerHeight;
-    const targetScroll = windowHeight * 2;
-    window.scrollTo({
-      top: targetScroll,
-      behavior: "smooth"
-    });
-    setScrollPercentage(targetScroll / document.body.scrollHeight * 100);
+
+    navigate('/contact')
+
   };
   const handleHomeClick = () => {
+    if (window.location.pathname != "/"){
+      navigate('/')
+    }
     const windowHeight = window.innerHeight;
     const targetScroll = windowHeight * 0;
     window.scrollTo({
@@ -45,12 +46,17 @@ const NavBar = () => {
   };
 
   const handlePlanClick = () => {
+    if (window.location.pathname != "/"){
+      navigate('/')
+    }
+    
     const windowHeight = window.innerHeight;
-    const targetScroll = windowHeight * 1.5;
+    const targetScroll = windowHeight * 1;
     window.scrollTo({
       top: targetScroll,
       behavior: "smooth"
     });
+    
     setScrollPercentage(targetScroll / document.body.scrollHeight * 100);
   };
   return (
@@ -62,7 +68,7 @@ const NavBar = () => {
 
               <Text
                 onClick={handleHomeClick}
-                className="text-base text-black-900"
+                className="underline cursor-pointer text-base text-black-900"
                 size="txtMontserratRegular16"
               >
                 ACCUEIL
@@ -70,13 +76,13 @@ const NavBar = () => {
               <Text
                 onClick={handlePlanClick}
 
-                className="mt-[11px] text-base text-black-900"
+                className="underline cursor-pointer mt-[11px] text-base text-black-900"
                 size="txtMontserratRegular16"
               >
                 A PROPOS
               </Text>
               <Text
-                className="mt-[11px] text-base text-black-900"
+                className="underline cursor-pointer mt-[11px] text-base text-black-900"
                 size="txtMontserratRegular16"
                 onClick={handleContactClick}
 
@@ -87,7 +93,7 @@ const NavBar = () => {
               <Text
                 onClick={handlePlanClick}
 
-                className="mt-[11px] text-base text-black-900"
+                className="underline cursor-pointer mt-[11px] text-base text-black-900"
                 size="txtMontserratRegular16"
               >
                 WEDDING PLANNER

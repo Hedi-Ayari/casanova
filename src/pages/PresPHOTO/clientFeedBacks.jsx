@@ -1,107 +1,69 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { List, RatingBar, Text } from "components";
+import { useGet } from "utils/functions";
+import { GetByIdBackByUser } from "service/api";
+import { CardFeedback } from "components/items-feedback/feedback";
+import { FreeMode, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
 
-const ClientsFeedBacks = () => {
+import { SwiperSlide,Swiper } from "swiper/react";
+import { useMediaQuery } from "react-responsive";
+const ClientsFeedBacks = ({ user }) => {
+
+  const Get = useGet();
+
+  const [data,setData] = useState([])
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' })
+
+  useEffect(async ()=>{
+    const fetchOrders = async () => {
+      try {
+        const {data} = await GetByIdBackByUser(user._id );
+        console.log(data.feedback);
+        setData(data.feedback)
+      } catch (error) {
+        console.error("Error prefetching product data:", error);
+      }
+    };
+
+    fetchOrders();
+  },[])
+
   return (
     <>
-     <Text
-                    className="sm:text-2xl md:text-[26px] text-[28px] text-left text-red-300 mt-[65px] mb-[40px] w-[100%]"
-                    size="txtCormorantBold28"
-                  >
-                    CLIENT FEED BACK
-                  </Text>
-      <List
-        className="sm:flex-col flex-row gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center w-full"
-        orientation="horizontal"
+      <Text
+        className="sm:text-2xl md:text-[26px] text-[28px] text-left text-red-300 mt-[65px] mb-[40px] w-[100%]"
+        size="txtCormorantBold28"
       >
-        <div className="border border-black-900_19 border-solid flex flex-1 flex-col items-center justify-end p-[22px] sm:px-5 rounded-[10px] w-full">
-          <div className="flex flex-col gap-1.5 items-start justify-start w-[95%] md:w-full">
-            <div className="flex flex-row font-cormorant gap-[7px] items-end justify-start w-[47%] md:w-full">
-              <Text
-                className="text-black-900 text-xl"
-                size="txtCormorantBold20"
-              >
-                Sarah M.
-              </Text>
-              <RatingBar
-                className="flex justify-between mb-[3px] mt-2 w-[78px]"
-                value={5}
-                starCount={5}
-                activeColor="#a57761"
-                size={13}
-              ></RatingBar>
-            </div>
-            <Text
-              className="leading-[22.00px] text-base text-black-900 w-full"
-              size="txtMontserratRegular16"
-            >
-              <>
-                &quot;I&#39;m blown away by the quality and style of the clothes
-                I received from Shop.co. From casual wear to elegant dresses,
-                every piece I&#39;ve bought has exceeded my expectations.”
-              </>
-            </Text>
-          </div>
-        </div>
-        <div className="border border-black-900_19 border-solid flex flex-1 flex-col items-center justify-end p-[22px] sm:px-5 rounded-[10px] w-full">
-          <div className="flex flex-col gap-1.5 items-start justify-start w-[95%] md:w-full">
-            <div className="flex flex-row font-cormorant gap-[7px] items-end justify-start w-[47%] md:w-full">
-              <Text
-                className="text-black-900 text-xl"
-                size="txtCormorantBold20"
-              >
-                Sarah M.
-              </Text>
-              <RatingBar
-                className="flex justify-between mb-[3px] mt-2 w-[78px]"
-                value={5}
-                starCount={5}
-                activeColor="#a57761"
-                size={13}
-              ></RatingBar>
-            </div>
-            <Text
-              className="leading-[22.00px] text-base text-black-900 w-full"
-              size="txtMontserratRegular16"
-            >
-              <>
-                &quot;I&#39;m blown away by the quality and style of the clothes
-                I received from Shop.co. From casual wear to elegant dresses,
-                every piece I&#39;ve bought has exceeded my expectations.”
-              </>
-            </Text>
-          </div>
-        </div>
-        <div className="border border-black-900_19 border-solid flex flex-1 flex-col items-center justify-end p-[22px] sm:px-5 rounded-[10px] w-full">
-          <div className="flex flex-col gap-1.5 items-start justify-start w-[95%] md:w-full">
-            <div className="flex flex-row font-cormorant gap-[7px] items-end justify-start w-[47%] md:w-full">
-              <Text
-                className="text-black-900 text-xl"
-                size="txtCormorantBold20"
-              >
-                Sarah M.
-              </Text>
-              <RatingBar
-                className="flex justify-between mb-[3px] mt-2 w-[78px]"
-                value={5}
-                starCount={5}
-                activeColor="#a57761"
-                size={13}
-              ></RatingBar>
-            </div>
-            <Text
-              className="leading-[22.00px] text-base text-black-900 w-full"
-              size="txtMontserratRegular16"
-            >
-              <>
-                &quot;I&#39;m blown away by the quality and style of the clothes
-                I received from Shop.co. From casual wear to elegant dresses,
-                every piece I&#39;ve bought has exceeded my expectations.”
-              </>
-            </Text>
-          </div>
-        </div>
+        CLIENT FEED BACK
+      </Text>
+      <List
+        className=" w-full"
+      > 
+       <Swiper
+        slidesPerView={isTabletOrMobile ? 1.1 : 3}
+        spaceBetween={isTabletOrMobile   ? 15 : 30}
+        freeMode={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[FreeMode, Pagination]}
+        className={"mySwiper- w-[100%] h-[280px]"}
+      >
+
+      {data && data.length > 0 && data.map(x=>{
+        return(
+        
+            <SwiperSlide>
+              <CardFeedback feedback={x} />
+            </SwiperSlide>
+          
+        )
+      })}
+      </Swiper>
       </List>
     </>
   );

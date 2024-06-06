@@ -127,7 +127,7 @@ const CartItem = ({ item, onRemove, index }) => {
       <>
       <div className="flex flex-1 md:flex-col flex-row md:gap-5 items-start justify-start my-0 w-full marginTop">
         <Img
-          className="h-[124px] md:h-auto object-cover rounded-[14px] w-[124px]"
+          className="h-[160px] md:h-auto object-cover rounded-[14px] w-[124px]"
           src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + item.image[0]}
           alt="imageSeven"
         />
@@ -158,7 +158,7 @@ const CartItem = ({ item, onRemove, index }) => {
             </div>
           </div>
           <Text className="text-black-900 text-lg" size="txtCalistogaRegular18">
-            ${item.price}
+            {item.price} TND
           </Text>
         </div>
         <div className="flex md:flex-1 flex-col gap-[58px] items-end justify-start md:ml-[0] ml-[188px] w-1/5 md:w-full">
