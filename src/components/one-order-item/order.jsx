@@ -10,6 +10,8 @@ import { Rating } from "components/rating";
 import { useGetUser } from "utils/functions";
 import { User } from "utils/recoil/atoms";
 import { useRecoilState } from "recoil";
+import { Alert } from "@mui/material";
+import { IoTriangleSharp } from "react-icons/io5";
 
 
 export const OneOrderItems = ({ product, id, is_evaluated }) => {
@@ -21,12 +23,13 @@ export const OneOrderItems = ({ product, id, is_evaluated }) => {
     const [orders, setOrders] = useState([]);
     const [open, setOpen] = useState(false);
     const [isevaluated, setisevaluated] = useState()
-    useEffect(()=>{
+    useEffect(() => {
         console.log(is_evaluated);
         setisevaluated(product.is_evaluated)
-    },[product.is_evaluated]);
+    }, [product.is_evaluated]);
     const [text, setTextArea] = useState('')
     const [rating, setRating] = useState(null)
+    const [error, setError] = useState(null)
 
     const shortenOrderId = (orderId) => {
         const hashedId = orderId
@@ -39,8 +42,8 @@ export const OneOrderItems = ({ product, id, is_evaluated }) => {
             const res = await CreateFeedBack(data);
             if (res) {
                 setisevaluated(true)
-            
-            
+
+
 
             }
             toast.custom(
@@ -67,20 +70,27 @@ export const OneOrderItems = ({ product, id, is_evaluated }) => {
     }
     const handleSubmit = async (x) => {
         const users = await GetUser(user);
+        if (text.length > 0 &&
+            rating > 0) {
+                alert('here')
+                console.log(product);
+            const feedback = {
+                owner: users.user._id,
+                receiver: x.owner._id,
+                text,
+                note: rating,
+                prod_id: x.id_product._id,
+                order_id:id
+            }
 
-        const feedback = {
-            owner: users.user._id,
-            receiver: x.owner._id,
-            text,
-            note: rating,
-            prod_id: x.id_product._id,
-            order_id:id
+            hnadleSubmits(feedback);
+            setError(false)
+        } else {
+            setError(true)
         }
 
-        hnadleSubmits(feedback);
-
     }
-    
+
     return (
         <div className="card-item">
             <div className="relative">
@@ -116,24 +126,26 @@ export const OneOrderItems = ({ product, id, is_evaluated }) => {
                         <p className="text-date-main">{product.owner.businessName}</p>
                     </div>
                 </div>
-                {isevaluated == false  && 
-                <div className="mt-4">
-                    <div className="flex justify-center text-[18px] font-montserrat ">
-                        <p>Noter le service du prestataire </p>
+                {isevaluated == false &&
+                    <div className="mt-4">
+                        {error && <Alert severity="error" className="my-4" icon={<IoTriangleSharp></IoTriangleSharp>}>Remplir tous les champs</Alert>}
 
-                    </div>
+                        <div className="flex justify-center text-[18px] md:text-[15px] font-montserrat ">
+                            <p>Noter le service du prestataire </p>
 
-                    <div className="w-[100%] mb-3 font-montserrat flex justify-center items-center gap-[10px]">
-                        <Rating edit={true} onChange={hnadleRating}></Rating>
-                    </div>
-                    <div className="mb-3">
-                        <textarea style={{ width: "100%", resize: "none", }} placeholder="Votre Avis est trés importante..." className="input-browns" rows="3" onChange={e => setTextArea(e.target.value)}></textarea>
-                    </div>
-                    <div className="my-3">
-                        <button style={{ width: "100%", resize: "none", }} onClick={e => handleSubmit(product)} className="button-browns">Envoyer</button>
-                    </div>
-                </div>}
-                
+                        </div>
+
+                        <div className="w-[100%] mb-3 font-montserrat flex justify-center items-center gap-[10px]">
+                            <Rating edit={true} onChange={hnadleRating}></Rating>
+                        </div>
+                        <div className="mb-3">
+                            <textarea style={{ width: "100%", resize: "none", }} placeholder="Votre Avis est trés importante..." className="input-browns" rows="3" onChange={e => setTextArea(e.target.value)}></textarea>
+                        </div>
+                        <div className="my-3">
+                            <button style={{ width: "100%", resize: "none", }} onClick={e => handleSubmit(product)} className="button-browns">Envoyer</button>
+                        </div>
+                    </div>}
+
             </div>
         </div>
     )

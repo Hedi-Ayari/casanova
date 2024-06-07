@@ -72,12 +72,12 @@ export const CardItems = ({ product, isPlanner = false }) => {
 
                     </div>
 
-                    <div className="h-[25%] md:h-[30%] flex-col justify-center flex px-3 gap-[10px] " >
-                        <Flex flex="between">
+                    <div className="h-[25%] md:h-[30%] flex-col justify-center flex px-3 gap-[13px] " >
+                        <Flex flex="between" gap="2%">
                             <Width width={"15%"}>
                                 <img src={process.env.REACT_APP_API_BACK_IMG +"/uploads/"+product.owner.picture} alt="dsds" className="w-full h-full object-cover" />
                             </Width>
-                            <Width width={"83%"}>
+                            <Width width={"81%"}>
                             <Flex flex="between" align="start">
                                 <Width width={"75%"}>
                                     <div className="flex justify-between">

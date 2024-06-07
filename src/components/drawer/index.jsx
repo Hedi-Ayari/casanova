@@ -18,11 +18,10 @@ import { useRecoilState } from 'recoil';
 import { useState } from 'react';
 import { useGet, useGetUser } from 'utils/functions';
 import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers';
+import Width from 'components/width/width';
+import Flex from 'components/Flex/flex';
 
-const SOCIALS = [
-    "tw", "fb", "ing", "yt", "tik"
-]
-
+import down from '../../assets/images/down.svg'
 
 
 const NestedList = ({ shareData }) => {
@@ -79,11 +78,11 @@ const NestedList = ({ shareData }) => {
         let data_var = {
             dateRange:date, priceRange, category:selectedCategory, subcategories:selectedSubcategory, searchQuery
         }
-        console.log(data_var);
+
         const queryParams = data_var ? `?${serialize(data_var)}` : '';
         
-        console.log(queryParams);
-        navigate('/category'+queryParams)
+        window.location.href = '/category'+queryParams
+
     }
 
     React.useEffect(() => {
@@ -202,7 +201,7 @@ const NestedList = ({ shareData }) => {
                     {categories?.map((category, index) => (
                         <div
                             key={category._id}
-                            className={`flex flex-col gap-5  justify-between w-full cursor-pointer ${selectedCategory === category._id
+                            className={`flex flex-col gap-2  justify-between w-full cursor-pointer ${selectedCategory === category._id
                                 ? "text-red-300"
                                 : "text-black-900"
                                 }`}
@@ -210,12 +209,17 @@ const NestedList = ({ shareData }) => {
                                 handleCategorySelection(category._id)
                             }
                         >
-                            <Text
-                                className="text-base w-auto"
-                                size="txtMontserratRegular16"
-                            >
-                                {category.title}
-                            </Text>
+                            <Width width={"100%"}>
+                                <Flex flex='between'>
+                                    <Text
+                                        className="text-base w-auto"
+                                        size="txtMontserratRegular16"
+                                    >
+                                        {category.title}
+                                    </Text>
+                                    <img src={down} alt="dowp" style={selectedCategory === category._id ? {transform : "rotate(180deg)"}:{transform : "rotate(0deg)"}}/>
+                                </Flex>
+                            </Width>
                             {selectedCategory === category._id &&
                                 subcategories && (
                                     <div className="pl-5">
@@ -230,14 +234,14 @@ const NestedList = ({ shareData }) => {
                                                             )
                                                         }
                                                         key={subIndex}
-                                                        className={`flex flex-row gap-5 items-center justify-between w-full cursor-pointer ${selectedSubcategory ===
+                                                        className={`flex flex-row gap-3 items-center justify-between w-full cursor-pointer ${selectedSubcategory ===
                                                             subcategory._id
                                                             ? "text-red-300"
                                                             : "text-black-900"
                                                             }`}
                                                     >
                                                         <Text
-                                                            className="text-base w-auto"
+                                                            className="text-base w-auto my-3"
                                                             size="txtMontserratRegular16"
                                                         >
                                                             {subcategory.title}
@@ -323,7 +327,7 @@ const NestedList = ({ shareData }) => {
                     variant="fill"
                     onClick={handleData}
                 >
-                    Apply Filter
+                    Chercher
                 </Button>
             </div>
 
@@ -364,11 +368,3 @@ export default function SidebarDrawer({ onchange, opens }) {
 
     );
 }
-
-/*<div className={styles.logo}>
-<img src={"logo"} alt="logo" width={120} />
-
-<div className={styles.text_logo}>
-    <p className={styles.text_color}>Notre vision est de prendre soin de tous vos besoins automobiles</p>
-</div>
-</div>*/

@@ -45,14 +45,14 @@ const CartItem = ({ item, onRemove, index }) => {
      <>
      <div className="flex flex-1  flex-col md:gap-5 items-start justify-start my-0 w-full marginTop">
        <Img
-         className="h-[135px] object-fill rounded-[14px] w-[100%]"
+         className="h-[135px] md:h-[240px] object-fill rounded-[14px] w-[100%]"
          src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + item.image[0]}
          alt="imageSeven"
        />
 
        <div className="flex md:flex-1 flex-col md:gap-[12px] gap-[21px] w-[100%] items-start justify-start ml-7 md:ml-[0] md:mt-0 mt-[5px] w-[30%] md:w-full">
          <div className="flex justify-between w-[100%]">
-         <Text className="text-black-900 text-lg md:text-[20px]"  size="txtCormorantBold18">
+         <Text className="text-black-900 text-lg md:text-[26px] capitalize"  size="txtCormorantBold18">
            {item.title}
          </Text>
          <Img
@@ -64,7 +64,7 @@ const CartItem = ({ item, onRemove, index }) => {
          </div>
          <div className="flex flex-col  md:gap-[10px] font-montserrat items-start justify-between w-full">
            <Text
-             className="text-black-900 text-sm  md:text-[14px] tracking-[0.60px]"
+             className="text-black-900 text-sm  md:text-[14px] tracking-[0.60px] capitalize"
              size="txtMontserratRegular12"
            >
              {item?.owner?.businessName}

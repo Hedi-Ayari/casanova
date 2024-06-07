@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import SidebarDrawer from "components/drawer";
 import Width from "components/width/width";
 import Flex from "components/Flex/flex";
-
+import check from '../../assets/images/note-2.svg'
 const NavBar = () => {
   const getUser = useGetUser();
   const [user, setUser] = useRecoilState(User);
@@ -38,8 +38,8 @@ const NavBar = () => {
   };
   const searchClick = () => {
 
-    window.location.href = "/category?searchQuery="+search
-    
+    window.location.href = "/category?searchQuery=" + search
+
 
   }
   const handleSearchQueryChange = (value) => {
@@ -126,48 +126,51 @@ const NavBar = () => {
             </div>
 
 
-           
 
-              {userData?.user ?
-            <div className="flex items-center gap-[10px]">
-                 <Img
-                 className="h-[24px] md:h-auto md:ml-[0]  rounded w-[24px]"
-                 src="../images/cart.svg"
-                 alt="bag"
-                 onClick={() => navigate(`/cart`)}
-               />
-               <Img
-                 className="h-6 w-6 md:ml-0"
-                 src="../images/box.svg"
-                 alt="bag"
-                 onClick={() => navigate(`/category?category=all`)}
-               />
-               <Img
-                 className="h-6 w-6 md:ml-0"
-                 src="../images/note-2.svg"
-                 alt="sanstitreEleven"
-                 onClick={() => navigate(`/mes-ordres`)}
- 
-               />
-                <img
-                  className=" md:h-auto md:ml-[0]  w-[45px] rounded"
-                  onClick={() => navigate(`/usersetting`)}
-                  src={
-                    userData?.user?.picture
-                      ? process.env.REACT_APP_API_BACK_IMG +
-                      "/uploads/" +
-                      userData?.user?.picture
-                      : "../images/defaultProfilePicCopy.jpg"
-                  } alt="bag"
-                  style={{ height: "56px!important" }}
+
+            {userData?.user ?
+              <div className="flex items-center gap-[10px]">
+                <Img
+                  className="h-[24px] md:h-auto md:ml-[0]  rounded w-[24px]"
+                  src="../images/cart.svg"
+                  alt="bag"
+                  onClick={() => navigate(`/cart`)}
                 />
+                <Img
+                  className="h-6 w-6 md:ml-0"
+                  src="../images/box.svg"
+                  alt="bag"
+                  onClick={() => navigate(`/category?category=all`)}
+                />
+                <Img
+                  className="h-7 w-7 md:ml-0"
+                  src={check}
+                  alt="sanstitreEleven"
+                  onClick={() => navigate(`/mes-ordres`)}
+
+                />
+                <div className="h-[38px] w-[38px]">
+                  <img
+                    className=" md:h-full md:ml-[0]  object-cover   rounded-lg"
+                    onClick={() => navigate(`/usersetting`)}
+                    src={
+                      userData?.user?.picture
+                        ? process.env.REACT_APP_API_BACK_IMG +
+                        "/uploads/" +
+                        userData?.user?.picture
+                        : "../images/defaultProfilePicCopy.jpg"
+                    } alt="bag"
+                    style={{ height: "100%!important", width: "100%" }}
+                  />
                 </div>
-                :
-                <div className="flex justify-between w-[70%]">
-                  <Link to='/signIn' style={{ width: '48%', height: '38px', fontSize: "14px", color: 'white', borderRadius: "8px", background: "rgb(195 147 124)", border: "1px solid rgb(195 147 124)" }} className="flex items-center justify-center" >Se connecter</Link>
-                  <Link to='/signUp' style={{ width: '48%', height: '38px', fontSize: "14px", color: 'rgb(195 147 124)', borderRadius: "8px", background: "white", border: "1px solid rgb(195 147 124)" }} className="flex items-center justify-center" >Login</Link>
-                </div>
-              }
+
+              </div>
+              :
+              <div className="flex justify-between w-[70%]">
+                <Link to='/signIn' style={{ width: '48%', height: '38px', fontSize: "14px", color: 'white', borderRadius: "8px", background: "rgb(195 147 124)", border: "1px solid rgb(195 147 124)" }} className="flex items-center justify-center" >Se connecter</Link>
+                <Link to='/signUp' style={{ width: '48%', height: '38px', fontSize: "14px", color: 'rgb(195 147 124)', borderRadius: "8px", background: "white", border: "1px solid rgb(195 147 124)" }} className="flex items-center justify-center" >Registre</Link>
+              </div>
+            }
             <SidebarDrawer onchange={handleSide} opens={openSide}> </SidebarDrawer>
           </div>
         </div>
@@ -176,227 +179,151 @@ const NavBar = () => {
     return (
       <>
         <br />
-        <div className=" flex items-center pl-[6%] pr-[6%] justify-between ">
-          {/* <div className="nav-item"> */}
-          <div className=" md:gap-5    md:px-5 ">
-            <Img
-              className="h-[21px]"
-              src="../images/img_sanstitre11.svg"
-              alt="sanstitreEleven"
-              onClick={() => navigate(`/homepage`)}
-            />
-          </div>
+        <div className="flex items-center px-[6%] justify-between">
+  <div className="md:px-5">
+    <Img
+      className="h-[21px]"
+      src="../images/img_sanstitre11.svg"
+      alt="sanstitreEleven"
+      onClick={() => navigate(`/homepage`)}
+    />
+  </div>
 
-          <div
-            className="sm:hidden flex flex-row gap-2 items-center relative w-[500px] ml-5 w-1/4 md:w-full"
-          >
-            <Input
-              style={{
-                border: "1px solid #C3937C", borderRadius: "8px",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "calc(100% - 10px) center",
-                paddingRight: "35px",
-              }}
-              type="text"
-              onChange={(e) => handleSearchQueryChange(e)}
-              value={search}
-              className="w-[100%]"
-              placeholder="Search products..."
-            />
-            <Img
-              className="h-[20px] absolute right-5"
-              src="../images/search-normal.svg"
-              alt="sanstitreEleven"
-              onClick={searchClick}
+  <div className="flex flex-row gap-2 items-center relative w-1/4 md:w-full ml-5 sm:hidden">
+    <Input
+      style={{
+        border: "1px solid #C3937C",
+        borderRadius: "8px",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "calc(100% - 10px) center",
+        paddingRight: "35px",
+      }}
+      type="text"
+      onChange={(e) => handleSearchQueryChange(e)}
+      value={search}
+      className="w-full"
+      placeholder="Search products..."
+    />
+    <Img
+      className="h-[20px] absolute right-5 cursor-pointer"
+      src="../images/search-normal.svg"
+      alt="sanstitreEleven"
+      onClick={searchClick}
+    />
+  </div>
 
-            />
+  {userData?.user ? (
+    <div className="flex items-center gap-4 justify-end w-[27%] md:w-full relative">
+      <Img
+        className="h-[24px] cursor-pointer"
+        src={playing ? "../images/volume-cross.svg" : "../images/volume-high.svg"}
+        alt="Audio Toggle"
+        onClick={handlePlayAudio}
+      />
+      <Img
+        className="h-6 w-6 cursor-pointer"
+        src="../images/box.svg"
+        alt="Category"
+        onClick={() => navigate(`/category?category=all`)}
+      />
+      <Img
+        className="h-6 w-6 cursor-pointer"
+        src="../images/notification-bing.svg"
+        alt="Notifications"
+        onClick={() => setShowSelectListNotification(!showSelectListNotification)}
+      />
+      <Img
+        className="h-[27px] w-[25px] cursor-pointer"
+        src="../images/cart.svg"
+        alt="Cart"
+        onClick={() => navigate(`/cart`)}
+      />
 
-
-
-          </div>
-          {userData?.user ?
-            <div className="flex items-center gap-[4%] justify-center">
-
-
-
-
-
-              <div className="pr-[2%]"></div>
-              <Img
-                className="h-[24px]"
-                src={
-                  playing
-                    ?
-                    "../images/volume-cross.svg"
-                    : "../images/volume-high.svg"
-                }
-                alt="sanstitreEleven"
-                onClick={handlePlayAudio} />
-              <Img
-                className="h-6 w-6 md:ml-0"
-                src="../images/box.svg"
-                alt="bag"
-                onClick={() => navigate(`/category?category=all`)}
-              />
-
-
-              <Img
-                className="h-6 w-6 md:ml-0"
-                src="../images/notification-bing.svg"
-                alt="bag"
-                onClick={() => setShowSelectListNotification(!showSelectListNotification)}
-              />
-              <Img
-                className="h-[27px] w-[25px] md:ml-0"
-                src="../images/cart.svg"
-                alt="bag"
-                onClick={() => navigate(`/cart`)}
-              />
-
-              <div className="flex gap-2 ml-3">
-                <Img
-                  className="h-[40px] md:h-auto md:ml-[0]  rounded-[50%] w-[40px]"
-                  src={
-                    userData?.user?.picture
-                      ? process.env.REACT_APP_API_BACK_IMG +
-                      "/uploads/" +
-                      userData?.user?.picture
-                      : "../images/defaultProfilePicCopy.jpg"
-                  } alt="bag"
-                />
-                <div>
-
-                  <Text className="pt-[2%]" style={{ color: '#151924', fontSize: '14px', fontFamily: 'Montserrat', fontWeight: "bold" }} >{userData?.user?.name}</Text>
-                  <Text style={{ color: '#444750', fontSize: '12px', fontFamily: 'Montserrat, sans-serif' }}>  {userData?.user?.email?.primary}</Text>
-                </div>
-                <Img
-                  className="pb-[2%] h-[40px] md:h-auto md:ml-[0]  rounded-[50%] w-[10%]"
-                  src="../images/arrow-down.svg"
-                  alt="bag"
-                  onClick={handleImageClick}
-                />
-              </div>
-
-
-              <div className=" " onClick={handleImageClick}>
-
-                {userData?.user ? (
-                  <div className="flex w-[100%] " hidden={!showSelectList}>
-                    <ul
-                      ref={selectRef}
-                      className="SelectSettingsProfile"
-                      style={{ display: showSelectList ? "block" : "none" }}
-                    >
-                      <li
-                        onClick={() => navigate(`/usersetting`)}
-                        className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
-                      >
-                        <Img
-                          className="mr-2"
-                          src="../images/Settings.svg"
-                          alt="sanstitreEleven"
-                        />{" "}
-                        Paramétres
-                      </li>
-                      <li
-                        onClick={() => navigate(`/mes-ordres`)}
-                        className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
-                      >
-                        <Img
-                          className="h-6 w-6 md:ml-0"
-                          src="../images/note-2.svg"
-                          alt="sanstitreEleven"
-
-                        />{" "}
-                        Mes ordres
-                      </li>
-                      {userData?.user?.type == "Prestataire" ? (
-                        <>
-                          {" "}
-                          <li
-                            onClick={() => navigate(`/Dashboard`)}
-                            className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
-                          >
-                            <Img
-                              className="mr-2"
-                              src="../images/Settings.svg"
-                              alt="sanstitreEleven"
-                            />{" "}
-                            Dashboard
-                          </li>
-                        </>
-                      ) : (
-                        <></>
-                      )}
-
-                      <li
-                        onClick={() => {
-                          setUser({});
-                          window.location.reload();
-                        }}
-                        className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
-                      >
-                        <Img
-                          className="mr-2"
-                          src="../images/disconnect.svg"
-                          alt="sanstitreEleven"
-                        />{" "}
-                        Logout
-                      </li>
-                    </ul>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex ml-[22%]" hidden={!showSelectList}>
-                      <ul
-                        ref={selectRef}
-                        className="SelectSettingsProfile"
-                        style={{ display: showSelectList ? "block" : "none" }}
-                      >
-                        <li
-                          onClick={() => navigate(`/SignIn`)}
-                          className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
-                        >
-                          <CiSettings className="mr-2" /> Login
-                        </li>
-                      </ul>
-                    </div>
-                  </>
-                )}
-              </div>
-              <div className=" " onClick={handleImageClick}>
-
-                <>
-                  <div className="flex ml-[22%]" hidden={!showSelectList}>
-                    <ul
-                      className="SelectSettingsProfile"
-                      style={{ right: "18%", display: showSelectListNotification ? "block" : "none" }}
-                    >
-                      <li
-                        onClick={() => navigate(`/SignIn`)}
-                        className="text-base  font-cormorant font-normal flex items-center"
-                      >
-                        Notifications
-                      </li>
-                    </ul>
-                  </div>
-                </>
-
-              </div>
-            </div>
-            :
-            <Width width={"25%"}>
-              <Flex gap="10px" className="w-[100%]">
-                <Link to='/signIn' style={{ width: '48%', height: '38px', fontSize: "14px", color: 'white', borderRadius: "8px", background: "rgb(195 147 124)", border: "1px solid rgb(195 147 124)" }} className="flex items-center justify-center" >Login</Link>
-                <Link to='/signUp' style={{ width: '48%', height: '38px', fontSize: "14px", color: 'rgb(195 147 124)', borderRadius: "8px", background: "#fff", border: "1px solid rgb(195 147 124)" }} className="flex items-center justify-center" >Register</Link>
-              </Flex>
-
-            </Width>
-          }
-
+      <div className="flex gap-2 items-center">
+        <div className="h-[40px] w-[40px]">
+          <img
+            className="h-full w-full rounded"
+            src={
+              userData?.user?.picture
+                ? process.env.REACT_APP_API_BACK_IMG + "/uploads/" + userData?.user?.picture
+                : "../images/defaultProfilePicCopy.jpg"
+            }
+            alt="Profile"
+          />
         </div>
+        <div>
+          <Text className="font-bold" style={{ color: '#151924', fontSize: '14px', fontFamily: 'Montserrat' }}>
+            {userData?.user?.name}
+          </Text>
+          <Text style={{ color: '#444750', fontSize: '12px', fontFamily: 'Montserrat, sans-serif' }}>
+            {userData?.user?.email?.primary}
+          </Text>
+        </div>
+        <Img
+          className="h-[24px] cursor-pointer"
+          src="../images/arrow-down.svg"
+          alt="Dropdown"
+          onClick={handleImageClick}
+        />
+      </div>
 
-        {/* </div> */}
+      {showSelectList && (
+        <div className="absolute right-0 top-[110%] mt-2 py-3 w-[250px] bg-white shadow-md rounded-md" style={{background:'#fff',zIndex:"99999999"}}>
+          <ul ref={selectRef}>
+            <li onClick={() => navigate(`/usersetting`)} className="py-3 px-4 hover:bg-gray-100  flex cursor-pointer">
+              <Img className="mr-2" src="../images/Settings.svg" alt="Settings" /> Paramètres
+            </li>
+            <li onClick={() => navigate(`/mes-ordres`)} className="py-3 px-4 hover:bg-gray-100  flex cursor-pointer">
+              <Img className="mr-2" src={check} alt="Orders" /> Mes ordres
+            </li>
+            {userData?.user?.type === "Prestataire" && (
+              <li onClick={() => navigate(`/Dashboard`)} className="py-3 px-4 hover:bg-gray-100  flex cursor-pointer">
+                <Img className="mr-2" src="../images/Settings.svg" alt="Dashboard" /> Dashboard
+              </li>
+            )}
+            <li
+              onClick={() => {
+                setUser({});
+                window.location.reload();
+              }}
+              className="py-2 px-4 hover:bg-gray-100  flex cursor-pointer"
+            >
+              <Img className="mr-2" src="../images/disconnect.svg" alt="Logout" /> Logout
+            </li>
+          </ul>
+        </div>
+      )}
+
+      {showSelectListNotification && (
+        <div className="absolute right-0 mt-2 w-[200px] bg-white shadow-md rounded-md">
+          <ul>
+            <li onClick={() => navigate(`/SignIn`)} className="py-2 px-4 hover:bg-gray-100 cursor-pointer">
+              Notifications
+            </li>
+          </ul>
+        </div>
+      )}
+    </div>
+  ) : (
+    <div className="w-1/4 flex justify-end">
+      <Link
+        to="/signIn"
+        className="w-[48%] h-[38px] text-center flex items-center justify-center text-white rounded-md"
+        style={{ background: "rgb(195 147 124)", border: "1px solid rgb(195 147 124)" }}
+      >
+        Login
+      </Link>
+      <Link
+        to="/signUp"
+        className="w-[48%] h-[38px] text-center flex items-center justify-center text-[#C3937C] rounded-md ml-2"
+        style={{ background: "#fff", border: "1px solid rgb(195 147 124)" }}
+      >
+        Register
+      </Link>
+    </div>
+  )}
+</div>
+
       </>
     );
   }

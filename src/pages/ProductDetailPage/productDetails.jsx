@@ -174,10 +174,10 @@ const ProductDetails = () => {
                 >
                   {product.owner.businessName}
                 </Text>
-                <div className="flex gap-[2px]  items-center w-[100%]">
+                <div className="flex gap-[8px] mt-1 items-end w-[100%]">
                   <Rating val={product.note}></Rating>
                   <Text
-                    className="text-base text-black-900"
+                    className="text-base md:text-[17px] text-black-900 "
                     size="txtMontserratRegular16"
                   >
                     <span className="text-black-900 font-calistoga text-left font-normal">

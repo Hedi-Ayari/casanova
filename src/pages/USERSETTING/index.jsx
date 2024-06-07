@@ -249,7 +249,7 @@ const USERSETTINGPage = () => {
                               />
                             </div>
                             <div className="w-[48%]">
-                              <Text className=" mb-2 text-black-900 text-sm pl-[2%]" size="txtCormorantRegular14">NOM DE FAMILLE</Text>
+                              <Text className=" mb-2 text-black-900 text-sm " size="txtCormorantRegular14">NOM DE FAMILLE</Text>
                               <Input
                                 name="famillyName"
                                 defaultValue={userData?.user?.famillyName}
@@ -279,7 +279,7 @@ const USERSETTINGPage = () => {
                               />
                             </div>
                           <div className="w-[100%] w-[100%] md:block hidden py-3 md:py-2">
-                              <Text className=" mb-2 text-black-900 text-sm pl-[2%]" size="txtCormorantRegular14">NOM DE FAMILLE</Text>
+                              <Text className=" mb-2 text-black-900 text-sm " size="txtCormorantRegular14">NOM DE FAMILLE</Text>
                               <Input
                                 name="famillyName"
                                 defaultValue={userData?.user?.famillyName}

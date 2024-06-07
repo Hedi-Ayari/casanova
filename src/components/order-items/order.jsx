@@ -18,7 +18,7 @@ export const OrderItems = ({ item }) => {
 
     return (
         
-        <div className="card-item">
+        <div className="card-item font-montserrat">
             <div className="relative">
 
                 <div className="w-[100%] py-2">

@@ -327,7 +327,7 @@ const CategoryPagePage = () => {
                       variant="fill"
                       onClick={handleSubmit}
                     >
-                      Apply Filter
+                      Chercher
                     </Button>
                     <br></br>
                   </div>

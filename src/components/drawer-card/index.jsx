@@ -18,7 +18,6 @@ import { Button } from 'components';
 import { useRecoilState } from 'recoil';
 import { useMediaQuery } from 'react-responsive';
 import Width from 'components/width/width';
-
 function CartToggle({ onchange, opens }) {
     const [openDrawer, setOpenDrawer] = React.useState(false);
 
@@ -116,11 +115,11 @@ function CartToggle({ onchange, opens }) {
                                             <P14>{text.categorie?.title}</P14>
                                         </div>
                                         <Flex flex="between">
-                                            <Width width={'30%'}>
+                                            <Width width={'40%'}>
                                                 <Flex>
                                                     <Width width={'30%'} onclick={e => decreaseCount(text._id,text.count)}>
-                                                        <Flex flex="center" align="center" className='box-addons'>
-                                                            <img src={minus} alt="" width={12} height={12}/>
+                                                        <Flex flex="center" align="center">
+                                                            <img src={minus} alt="" width={32} height={32}/>
                                                         </Flex>
                                                     </Width>
                                                     <Width width={'40%'} className="price">
@@ -129,13 +128,13 @@ function CartToggle({ onchange, opens }) {
                                                         </Flex>
                                                     </Width>
                                                     <Width width={'30%'} onclick={e => increaseCount(text._id)}>
-                                                        <Flex flex="center" align="center"  className='box-addons'>
-                                                            <img src={plus} alt="" width={12} height={12}/>
+                                                        <Flex flex="center" align="center" >
+                                                            <img src={plus} alt="" width={32} height={32}/>
                                                         </Flex>
                                                     </Width>
                                                 </Flex>
                                             </Width>
-                                            <Width width={'65%'}>
+                                            <Width width={'60%'}>
                                                 <Flex flex="end">
                                                     <P16 weight={'600'}>{text.price} TND</P16>
                                                 </Flex>

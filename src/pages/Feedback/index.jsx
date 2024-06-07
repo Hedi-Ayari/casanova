@@ -171,7 +171,7 @@ const FeedbackPage = () => {
                               <textarea style={{ width: "100%",resize:"none", }} placeholder="Votre Avis est trés importante..." className="input-brown" rows="5" onChange={e => setTextArea(e.target.value)}></textarea>
                           </div>
                           <div className="my-3 px-4">
-                              <button style={{ width: "100%",resize:"none", }} onClick={handleSubmit} className="button-brown">Envoyer</button>
+                              <button style={{ width: "100%",resize:"none", }} onClick={handleSubmit} className="button-browns">Envoyer</button>
                           </div>
                       </div>
                   </div>

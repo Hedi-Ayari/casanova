@@ -21,24 +21,21 @@ import Flex from "components/Flex/flex";
 import { useNavigate } from "react-router-dom";
 import { P16 } from "components/TXT/TXT";
 import { Rating } from "components/rating";
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Alert } from "@mui/material";
 import { FaExpandAlt } from "react-icons/fa";
 import CustomToast from "components/toast";
 import toast from "react-hot-toast";
+import { IoTriangleSharp } from "react-icons/io5";
 
 
 const OrderPage = () => {
   const GetUser = useGetUser();
-  const get = useGet();
-  const getById = useGetById();
 
   const [order, setOrder] = useState([]);
-  const [orders, setOrders] = useState([]);
   const [open, setOpen] = useState(false);
   const [product, setProduct] = useState();
   const onOpenModal = (x) => { setProduct(x); setOpen(true) };
   const onCloseModal = () => setOpen(false);
-  const [selectedOrderId, setSelectedOrderId] = useState(null);
   const [user] = useRecoilState(User);
   const fetchUser = async () => {
     try {
@@ -52,7 +49,7 @@ const OrderPage = () => {
       console.log(e);
     }
   }
- 
+
   useEffect(() => {
     fetchUser()
 
@@ -60,61 +57,33 @@ const OrderPage = () => {
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' })
 
-  const fetchCustomerName = async (customerId) => {
-    try {
-      const data = await getById("User", { _id: customerId });
-      return data;
-    } catch (error) {
-      console.error("Error fetching customer name:", error);
-      return "Error";
-    }
-  };
-
   const shortenOrderId = (orderId) => {
     const hashedId = orderId;
     return hashedId.substring(0, 8);
   };
-  /**   
-    const handleSubmit = () =>{
-  
-      const feedback = {
-          owner:users.user._id,
-          receiver:orders._id,
-          text,
-          note:rating,
-          //prod_id:id_prod,
-          order_id:id_order
-      }
-  
-      hnadleSubmits(feedback);
-  
-  }
-  */
-
 
   const [text, setTextArea] = useState('')
-  const [rating, setRating] = useState(null)
+  const [rating, setRating] = useState(0)
   const hnadleSubmits = async (data) => {
     try {
-       const res = await CreateFeedBack(data);
-        if(res){
-         // Assuming you have a state variable `product` with a setter `setProduct`
+      const res = await CreateFeedBack(data);
+      if (res) {
 
-const updatedProducts = product.products.map(x => {
-  console.log(x, data.prod_id);
-  if (x.id_product._id === data.prod_id) {
-    return { ...x, is_evaluated: true,note:rating };
-  }
-  return x;
-});
+        const updatedProducts = product.products.map(x => {
+          console.log(x, data.prod_id);
+          if (x.id_product._id === data.prod_id) {
+            return { ...x, is_evaluated: true, note: rating };
+          }
+          return x;
+        });
 
-// Update the state with the new products array
-setProduct(prevState => ({
-  ...prevState,
-  products: updatedProducts
-}));
 
-        }
+        setProduct(prevState => ({
+          ...prevState,
+          products: updatedProducts
+        }));
+
+      }
       toast.custom(
         (t) => (
           <CustomToast
@@ -137,19 +106,27 @@ setProduct(prevState => ({
     console.log("rating", data);
     setRating(data)
   }
+  const [error, setError] = useState(false)
   const handleSubmit = async (x) => {
+    console.log(product);
     const users = await GetUser(user);
+    if (text.length > 0 &&
+      rating > 0) {
 
-    const feedback = {
-      owner: users.user._id,
-      receiver: x.owner._id,
-      text,
-      note: rating,
-      prod_id: x.id_product._id,
-      order_id: product._id
+      const feedback = {
+        owner: users.user._id,
+        receiver: x.owner._id,
+        text,
+        note: rating,
+        prod_id: x.id_product._id,
+        order_id: product._id
+      }
+
+      hnadleSubmits(feedback);
+      setError(false)
+    } else {
+      setError(true)
     }
-
-    hnadleSubmits(feedback);
 
   }
   return (
@@ -217,7 +194,7 @@ setProduct(prevState => ({
                                           <img src={'https://www.casanova-event.com/uploads/' + x.id_product?.image[0]} alt="" width={'80%'} style={{ borderRadius: "11px" }} />
                                         </div>
                                         <div className="w-[40%]">
-                                          <p style={{fontWeight:'600'}}> {x.id_product?.title}</p>
+                                          <p style={{ fontWeight: '600' }}> {x.id_product?.title}</p>
                                           <p>{x.id_product?.price} TND * {x.quantity}</p>
                                         </div>
                                         <div className="w-[22.5%]">
@@ -233,7 +210,8 @@ setProduct(prevState => ({
                                       </div>
                                     </AccordionSummary>
                                     <AccordionDetails>
-                                      <div className="flex justify-center text-[18px] font-montserrat">
+                                      {error && <Alert severity="error" className="my-4" icon={<IoTriangleSharp></IoTriangleSharp>}>Remplir tous les champs</Alert>}
+                                      <div className="flex justify-center text-[18px] md:text-[15px] font-montserrat">
                                         <p>Noter le service du prestataire </p>
 
                                       </div>
@@ -245,7 +223,7 @@ setProduct(prevState => ({
                                         <textarea style={{ width: "100%", resize: "none", }} placeholder="Votre Avis est trés importante..." className="input-browns" rows="3" onChange={e => setTextArea(e.target.value)}></textarea>
                                       </div>
                                       <div className="my-3">
-                                        <button style={{ width: "100%", resize: "none", }} onClick={e => handleSubmit(x)} className="button-brown">Envoyer</button>
+                                        <button style={{ width: "100%", resize: "none", }} onClick={e => handleSubmit(x)} className="button-browns">Envoyer</button>
                                       </div>
                                     </AccordionDetails>
                                   </Accordion>
@@ -285,21 +263,21 @@ setProduct(prevState => ({
                       <Width width={"100%"} className="my-3 font-cormorant">
                         <Flex flex="between">
                           <p style={{ fontWeight: "600" }}>Sous Total:</p>
-                          <p  className="font-montserrat text-[18px]">{product.totalPrice}TND</p>
+                          <p className="font-montserrat text-[18px]">{product.totalPrice}TND</p>
                         </Flex>
                       </Width>
                       <hr className="my-3"></hr>
                       <Width width={"100%"} className="font-cormorant">
                         <Flex flex="between">
                           <p style={{ fontWeight: "600" }}>Livraison:</p>
-                          <p  className="font-montserrat text-[18px]">{0}TND</p>
+                          <p className="font-montserrat text-[18px]">{0}TND</p>
                         </Flex>
                       </Width>
                       <hr className="my-3"></hr>
                       <Width width={"100%"} className="font-cormorant">
                         <Flex flex="between">
                           <p style={{ fontWeight: "600" }}>Sub Total:</p>
-                          <p  className="font-montserrat text-[18px]">{product.totalPrice}TND</p>
+                          <p className="font-montserrat text-[18px]">{product.totalPrice}TND</p>
                         </Flex>
                       </Width>
 

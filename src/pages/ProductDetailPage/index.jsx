@@ -109,9 +109,9 @@ const ProductDetailPagePage = () => {
             </div>
             <div className="flex flex-col mt-4 relative w-full">
               <Line className="bg-red-300_1c h-px mx-auto w-full" />
-              <Line className="bg-red-300 h-0.5 mb-auto ml-[0px] mt-[-1px] w-[12%] z-[1]" />
+              <Line className="bg-red-300 h-0.5 mb-auto ml-[0px] mt-[-1px] w-[32%] z-[1]" />
             </div>
-            <div className="flex flex-row md:gap-5 items-center justify-start mt-[22px] md:mt-[10px] md:mb-[5px] w-full">
+            <div className="flex flex-row md:gap-5 items-center justify-start mt-[22px] md:mt-[15px] md:mb-[15px] w-full">
               <Text
                 className="text-2xl md:text-[22px] text-black-900 sm:text-xl"
                 size="txtCormorantBold24"
@@ -167,12 +167,12 @@ const ProductDetailPagePage = () => {
               {cateProd && cateProd.length > 0 ?
               <Flex flex="center"  className="w-full">
 
-                <Width width={"85%"}>
+                <Width width={isTabletOrMobile ? "100%" : "85%"}>
                   <Flex flex={isTabletOrMobile  ? "center" : "between"} className="w-full">
                     { 
-                      cateProd.map(prod=>{
+                      cateProd.slice().map(prod=>{
                         return(
-                          <Width width={isTabletOrMobile ? "95%" : "32%" } >
+                          <Width width={isTabletOrMobile ? "100%" : "32%" } >
 
                           <CardItems product={prod} />
                           </Width>
