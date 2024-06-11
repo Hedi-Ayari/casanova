@@ -168,7 +168,7 @@ const USERSETTINGPage = () => {
                 <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-full  border-solid-grey">
 
                   <div className="flex flex-col gap-[19px] items-center justify-start w-[35%] md:w-[100%] md:w-full">
-                    <div className="flex flex-col gap-8 items-center justify-start md:gap-3 w-[30%] md:w-full py-6 md:py-3 md:py-2">
+                    <div className="flex flex-col gap-8 items-center justify-start md:gap-3 w-[100%] md:w-full py-6 md:py-3 md:py-2">
                       <div className="h-[151px] relative w-[151px]">
                         <Img
                           className="absolute h-[151px] inset-[0] justify-center m-auto rounded-[10px] w-[151px]"
@@ -184,7 +184,7 @@ const USERSETTINGPage = () => {
                         />
                       </div>
                       <Text
-                        className="sm:text-[27px] md:text-[29px] text-[31px] text-black-900"
+                        className="sm:text-[27px] text-center md:text-[29px] text-[31px] text-black-900"
                         size="txtCormorantBold31"
                       >
                         {userData.user.name ? (
