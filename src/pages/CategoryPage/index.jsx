@@ -16,6 +16,9 @@ import { SearchQuerry } from "../../utils/recoil/atoms";
 import { useRecoilState } from "recoil";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
+import Width from "components/width/width";
+import Flex from "components/Flex/flex";
+import down from '../../assets/images/down.svg'
 
 const CategoryPagePage = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -225,53 +228,58 @@ const CategoryPagePage = () => {
                       </Text>
                       {categories?.map((category, index) => (
                         <div
-                          key={category._id}
-                          className={`flex flex-col gap-5  justify-between w-full cursor-pointer ${selectedCategory === category._id
-                              ? "text-red-300"
-                              : "text-black-900"
+                        key={category._id}
+                        className={`flex flex-col gap-2  justify-between w-full cursor-pointer ${selectedCategory === category._id
+                            ? "text-red-300"
+                            : "text-black-900"
                             }`}
-                          onClick={() =>
+                        onClick={() =>
                             handleCategorySelection(category._id)
-                          }
-                        >
-                          <Text
-                            className="text-base w-auto"
-                            size="txtMontserratRegular16"
-                          >
-                            {category.title}
-                          </Text>
-                          {selectedCategory === category._id &&
+                        }
+                    >
+                        <Width width={"100%"}>
+                            <Flex flex='between'>
+                                <Text
+                                    className="text-base w-auto"
+                                    size="txtMontserratRegular16"
+                                >
+                                    {category.title}
+                                </Text>
+                                <img src={down} alt="dowp" style={selectedCategory === category._id ? {transform : "rotate(180deg)"}:{transform : "rotate(0deg)"}}/>
+                            </Flex>
+                        </Width>
+                        {selectedCategory === category._id &&
                             subcategories && (
-                              <div className="pl-5">
-                                {subcategories.map(
-                                  (subcategory, subIndex) =>
-                                    subcategory.categorieId ===
-                                    selectedCategory && (
-                                      <div
-                                        onClick={(e) =>
-                                          setSelectedSubcategory(
-                                            subcategory._id
-                                          )
-                                        }
-                                        key={subIndex}
-                                        className={`flex flex-row gap-5 items-center justify-between w-full cursor-pointer ${selectedSubcategory ===
-                                            subcategory._id
-                                            ? "text-red-300"
-                                            : "text-black-900"
-                                          }`}
-                                      >
-                                        <Text
-                                          className="text-base w-auto"
-                                          size="txtMontserratRegular16"
-                                        >
-                                          {subcategory.title}
-                                        </Text>
-                                      </div>
-                                    )
-                                )}
-                              </div>
+                                <div className="pl-5">
+                                    {subcategories.map(
+                                        (subcategory, subIndex) =>
+                                            subcategory.categorieId ===
+                                            selectedCategory && (
+                                                <div
+                                                    onClick={(e) =>
+                                                        setSelectedSubcategory(
+                                                            subcategory._id
+                                                        )
+                                                    }
+                                                    key={subIndex}
+                                                    className={`flex flex-row gap-3 items-center justify-between w-full cursor-pointer ${selectedSubcategory ===
+                                                        subcategory._id
+                                                        ? "text-red-300"
+                                                        : "text-black-900"
+                                                        }`}
+                                                >
+                                                    <Text
+                                                        className="text-base w-auto my-3"
+                                                        size="txtMontserratRegular16"
+                                                    >
+                                                        {subcategory.title}
+                                                    </Text>
+                                                </div>
+                                            )
+                                    )}
+                                </div>
                             )}
-                        </div>
+                    </div>
                       ))}
                     </div>
 

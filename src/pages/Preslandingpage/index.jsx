@@ -525,14 +525,10 @@ const PreslandingpagePage = () => {
                           className="md:mt-0 mt-3.5 text-black-900_99 text-right text-sm"
                           size="txtMontserratRegular14Black90099"
                         >
-                          Cazanova © 2023 All Rights Reserved | Released with
+                          Cazanova © 2024 All Rights Reserved | Released with
                           xsustain.
                         </Text>
-                        <Img
-                          className="h-[30px] mb-0.5 w-[100%] object-cover"
-                          src="images/img_frame53.svg"
-                          alt="frameFiftyThree"
-                        />
+                      
                       </div>
                     </a>
                   </li>

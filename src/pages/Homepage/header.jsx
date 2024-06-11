@@ -40,6 +40,11 @@ const DesktopHeader = () =>{
                           >
                             WE BUILD YOUR DREAM <br></br> AROUND YOU
                           </Text>
+                          <Img
+                          className="h-[720px] absolute right-[10%] object-contain "
+                          src="images/img_beautifulcoupl_615x485.png"
+                          alt="beautifulcoupl"
+                        />
                           <div className="bg-red-300 hiddenPhone h-[104px] mb-[140px] rounded-[50%] w-[104px]"></div>
                         </div>
                         <div className="flex md:flex-col flex-row font-montserrat md:gap-10 gap-[115px] items-start justify-start mt-[47px] w-[57%] md:w-full">
@@ -58,7 +63,7 @@ const DesktopHeader = () =>{
                           color="red_300"
                           size="md"
                           variant="fill"
-                          onClick={()=>navigate("/category")}
+                          onClick={()=>navigate("/category?category=all")}
                         >
                           Shop now{" "}
                         </Button>
@@ -138,7 +143,7 @@ const DesktopHeader = () =>{
                               color="red_300"
                               size="sm"
                               variant="fill"
-                              onClick={(e)=>navigate("/category")}
+                              onClick={(e)=>navigate("/category?category=all")}
                             >
                               Voir
                             </Button>
@@ -261,7 +266,10 @@ const MobileHeader = () =>{
                           >
                             WE BUILD YOUR DREAM <br></br> AROUND YOU
                           </Text>
-                          <div className="bg-red-300 hiddenPhone h-[104px] mb-[140px] rounded-[50%] w-[104px]"></div>
+                     
+                          <div className="bg-red-300 hiddenPhone h-[104px] mb-[140px] rounded-[50%] w-[104px]">
+                        
+                          </div>
                         </div>
                         <div className="flex md:flex-col flex-row font-montserrat md:gap-10 gap-[115px] items-start justify-start mt-[47px] w-[57%] md:w-full">
                           <Text
@@ -279,7 +287,7 @@ const MobileHeader = () =>{
                           color="red_300"
                           size="md"
                           variant="fill"
-                          onClick={()=>navigate("/category")}
+                          onClick={()=>navigate("/category?category=all")}
                         >
                           Shop now{" "}
                         </Button>
@@ -334,7 +342,7 @@ const MobileHeader = () =>{
                       </div>
                     </div>
                     <Img
-                          className="h-[720px] object-cover w-[100%]"
+                          className="h-[640px] object-center object-cover"
                           src="images/img_beautifulcoupl_615x485.png"
                           alt="beautifulcoupl"
                         />

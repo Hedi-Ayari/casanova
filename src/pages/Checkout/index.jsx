@@ -128,9 +128,9 @@ export default function ChekoutsurplacePage() {
   return (
     <>
     <NavBar></NavBar>
-      <div className=" mt-7 md:mt-5 py-7 md:py-5 w-[100vw] h-[100%] md:h-[100%]  flex items-center justify-center">
+      <div className="  mt-7 md:mt-5 py-10 md:py-5 w-[100vw] h-[100%] md:h-[100%]  flex items-center justify-center">
         <div
-          className="w-[60vw] h-[100%] md:w-[95%] md:mx-auto shadow-box"
+          className="w-[60vw] h-[100%] md:w-[95%] md:mx-auto shadow-box  py-8"
           style={{ border: "1px solide black", backgroundColor: "white",height:"100%",borderRadius:"8px" }}
         >
           <div className="pt-[2%] md:py-6 flex flex-col align-center w-[100%] gap-y-15px">
@@ -154,7 +154,7 @@ export default function ChekoutsurplacePage() {
                     as="h2"
                     className="!text-red-300 tracking-[2.72px] mb-4"
                   >
-                    CHECK OUT
+                    CHECK OUT {selectedOption === "livraison" ? "CASANOVA" : "SUR PLACE"}
                   </Heading>
                 </>
               )}
@@ -163,11 +163,7 @@ export default function ChekoutsurplacePage() {
               <div className="flex flex-row  md:flex-col items-center justify-center pt-[2%] gap-[2em] md:gap-[10px]">
                 {" "}
                 <Button
-                  className={`gap-[11px] tracking-[0.96px] min-w-[260px] md:w-[100%] flex items-center justify-center text-center cursor-pointer rounded-sm h-[33px] px-[35px] text-xs ${
-                    selectedOption === "surPlace"
-                      ? "text-white-A700 bg-red-300"
-                      : "text-gray-600_01 bg-gray-100"
-                  }`}
+                  className={`gap-[11px] tracking-[0.96px] min-w-[260px] md:w-[100%] flex items-center justify-center text-center cursor-pointer rounded-sm h-[48px] md:h[33px] px-[35px] text-xs text-white-A700 bg-red-300`}
                   onClick={() => setSelectedOption("surPlace")}
                 >
                   <Img
@@ -178,16 +174,12 @@ export default function ChekoutsurplacePage() {
                   Paiement sur place
                 </Button>
                 <Button
-                  className={`gap-[7px] tracking-[0.96px] min-w-[260px] md:w-[100%] flex items-center justify-center text-center cursor-pointer rounded-sm h-[33px] px-[35px] text-xs ${
-                    selectedOption === "livraison"
-                      ? "text-white-A700 bg-red-300"
-                      : "text-gray-600_01 bg-gray-100"
-                  }`}
+                  className={`gap-[7px] tracking-[0.96px] min-w-[260px] md:w-[100%] flex items-center justify-center text-center cursor-pointer rounded-sm h-[48px] md:h[33px] px-[35px] text-xs text-gray-600_01 bg-gray-100`}
                   onClick={() => setSelectedOption("livraison")}
                 >
                   <Img
                     className={`mr-2 ${
-                      selectedOption === "livraison" ? "white-svg" : ""
+                      !selectedOption === "livraison" ? "white-svg" : ""
                     }`}
                     src="../images/img_delivery.svg"
                     alt="delivery"
@@ -279,7 +271,7 @@ export default function ChekoutsurplacePage() {
                        {calculateTotalPrice()}DT   
                     </Text>
                   </div>
-                  <div className="flex justify-center md:justify-between gap-[2em] md:gap-[10px] py-[2%] ">
+                  <div className="flex justify-center md:justify-between gap-[2em] md:gap-[10px] ">
                    <Button
                           type="button"
                           className="cursor-pointer font-poppins leading-[normal] min-w-[137px] md:w-[49%] rounded-md text-center text-xs"

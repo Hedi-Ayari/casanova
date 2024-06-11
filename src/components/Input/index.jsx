@@ -16,7 +16,7 @@ const variants = {
 const shapes = { round: "rounded-[7px]" };
 const sizes = {
   lg: "p-[11px]",
-  xl: "pb-2.5 pt-3.5 px-2.5",
+  xl: "pb-1.5 pt-1.5 px-2.5",
   sm: "pb-2",
   xs: "p-1.5",
   md: "pb-1.5 pt-[9px] px-1.5",

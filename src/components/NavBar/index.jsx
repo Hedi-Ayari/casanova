@@ -15,9 +15,8 @@ import { useRecoilState } from "recoil";
 import { useGetUser } from "utils/functions";
 import { Link } from "react-router-dom";
 import SidebarDrawer from "components/drawer";
-import Width from "components/width/width";
-import Flex from "components/Flex/flex";
 import check from '../../assets/images/note-2.svg'
+
 const NavBar = () => {
   const getUser = useGetUser();
   const [user, setUser] = useRecoilState(User);
@@ -213,7 +212,7 @@ const NavBar = () => {
   </div>
 
   {userData?.user ? (
-    <div className="flex items-center gap-4 justify-end w-[27%] md:w-full relative">
+    <div className="flex items-center gap-4 justify-end w-[32%] md:w-full relative">
       <Img
         className="h-[24px] cursor-pointer"
         src={playing ? "../images/volume-cross.svg" : "../images/volume-high.svg"}
@@ -309,7 +308,7 @@ const NavBar = () => {
       <Link
         to="/signIn"
         className="w-[48%] h-[38px] text-center flex items-center justify-center text-white rounded-md"
-        style={{ background: "rgb(195 147 124)", border: "1px solid rgb(195 147 124)" }}
+        style={{ background: "rgb(195 147 124)", border: "1px solid rgb(195 147 124)",color:"white" }}
       >
         Login
       </Link>

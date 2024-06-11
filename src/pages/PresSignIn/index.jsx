@@ -47,9 +47,9 @@ const PresSignIn = () => {
 
   return (
     <>
-   <div className=" flex flex-col font-cormorant sm:gap-10 md:gap-10 gap-[69px] items-center justify-end mx-auto md:pt-[0%] w-full">
-        <div className=" h-[100%] relative w-full">
-        <div className="bg-red-300  md:h-[100vh] inset-x-[0] mx-auto rounded-[2px] shadow-bs3 top-[0%] w-[81%] md:w-full">
+   <div className="flex flex-col font-cormorant sm:gap-10 md:gap-10 gap-[69px] items-center justify-center mx-auto md:pt-[0%] h-[100vh]  w-full">
+        <div className="h-[85%] md:h-[100%] relative w-full">
+        <div className="bg-red-300  h-[100%]  inset-x-[0] mx-auto rounded-[2px] shadow-bs3 top-[0%] w-[81%] md:w-full">
             <div className="flex flex-col h-full items-center justify-start m-auto w-full md:h-[100%]">
               <div className="flex md:flex-col  md:h-[100%] flex-row md:gap-5 md:items-center items-start justify-evenly w-full">
               <div className="md:h-[20%] relative w-[37%] md:w-full py-4">
@@ -70,7 +70,7 @@ const PresSignIn = () => {
                     </Text>
                   </div>
                 </div>
-                <div className="bg-white-A700 h-[80%] flex md:flex-1 flex-col md:p-[3%] items-start md:justify-center justify-start p-[190px] md:px-10 sm:px-5 rounded-sm w-[70%] md:w-full">
+                <div className="bg-white-A700 h-[80%] flex md:flex-1 flex-col md:p-[3%] items-start md:justify-center justify-center p-[190px] md:px-10 sm:px-5 rounded-sm w-[70%] md:w-full">
                   <Text
                     className="md:ml-[0] ml-[62px] sm:text-3xl md:text-[32px] text-[34px] text-red-300 tracking-[2.72px]"
                     size="txtCormorantBold34"

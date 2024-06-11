@@ -297,7 +297,7 @@ const CartPage = () => {
                     </Text>
                   </div>
                   <Button
-                    className="cursor-pointer font-medium font-montserrat min-w-[461px] sm:min-w-full mt-6 rounded-[5px] text-center text-sm"
+                    className="w-[100%] cursor-pointer font-medium font-montserrat min-w-[461px] sm:min-w-full mt-6 rounded-[5px] text-center text-sm"
                     color="red_300"
                     size="lg"
                     variant="fill"

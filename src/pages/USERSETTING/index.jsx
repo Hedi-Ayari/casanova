@@ -172,7 +172,7 @@ const USERSETTINGPage = () => {
                       <div className="h-[151px] relative w-[151px]">
                         <Img
                           className="absolute h-[151px] inset-[0] justify-center m-auto rounded-[10px] w-[151px]"
-                          style={{ border: "2px solid #a57761" }}
+                        
                           src={
                             userData?.user?.picture && !newImage
                               ? `${process.env.REACT_APP_API_BACK_IMG}/uploads/${userData?.user?.picture}`

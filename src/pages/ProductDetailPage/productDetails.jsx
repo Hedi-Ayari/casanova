@@ -169,7 +169,7 @@ const ProductDetails = () => {
               />
               <div>
                 <Text
-                  className="sm:text-[17px] pt-[2%] md:text-[19px] text-[20px] text-black-900 tracking-[1.05px] underline cursor-pointer uppercase"
+                  className="sm:text-[17px] pt-[2%] md:text-[19px] text-[20px] text-black-900 tracking-[1.05px] text-red-300 font-black cursor-pointer uppercase"
                   size="txtMontserratRegular21"
                 >
                   {product.owner.businessName}
