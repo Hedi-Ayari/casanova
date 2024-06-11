@@ -151,7 +151,7 @@ const USERSETTINGPage = () => {
                 >
                   PARAMÈTRES
                 </Text>
-                <div className="bg-gray-600_01 flex md:flex-col md:hidden flex-row md:gap-5 h-[50px] items-center justify-start mt-8 sm:px-5 px-[30px] w-full">
+                <div className="bg-gray-600_01 flex md:flex-col md:hidden flex-row md:gap-5 h-[50px] items-center justify-start mt-8 sm:px-5 px-[30px] w-full"  style={{borderTopLeftRadius:"8px",borderTopRightRadius:"8px"}}>
                   <Text
                     className="text-lg text-white-A700 w-[35%]"
                     size="txtCormorantBold18WhiteA700"
@@ -165,7 +165,7 @@ const USERSETTINGPage = () => {
                     INFORMATIONS DE BASE
                   </Text>
                 </div>
-                <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-full  border-solid-grey">
+                <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-full  border-solid-grey" style={{borderBottomLeftRadius:"8px",borderBottomRightRadius:"8px"}}>
 
                   <div className="flex flex-col gap-[19px] items-center justify-start w-[35%] md:w-[100%] md:w-full">
                     <div className="flex flex-col gap-8 items-center justify-start md:gap-3 w-[100%] md:w-full py-6 md:py-3 md:py-2">

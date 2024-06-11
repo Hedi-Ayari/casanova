@@ -239,9 +239,9 @@ const NavBar = () => {
       />
 
       <div className="flex gap-2 items-center">
-        <div className="h-[40px] w-[40px]">
+        <div className="h-[35px] w-[35px]">
           <img
-            className="h-full w-full rounded"
+            className="h-full w-full rounded object-cover"
             src={
               userData?.user?.picture
                 ? process.env.REACT_APP_API_BACK_IMG + "/uploads/" + userData?.user?.picture
